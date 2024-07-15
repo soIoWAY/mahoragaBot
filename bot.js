@@ -293,7 +293,7 @@ bot.on('text', async ctx => {
 bot.launch({
 	webhook: {
 		domain: 'https://mahoraga-bot.vercel.app/',
-		port: 4000,
+		port: process.env.PORT || 3000,
 	},
 })
 
