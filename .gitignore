@@ -1,0 +1,22 @@
+# Node.js
+/node_modules
+
+# Environment
+.env
+
+# IDE
+.idea
+.vscode
+
+# SQLite
+*.sqlite
+
+# PostgreSQL
+# Ігноруємо файли конфігурації бази даних PostgreSQL, якщо такі є
+/config/postgresql.json
+
+# Логи
+*.log
+
+# Інші тимчасові файли
+.DS_Store
