@@ -1,9 +1,7 @@
 require('dotenv').config()
 const { Telegraf } = require('telegraf')
-const sqlite3 = require('sqlite3').verbose()
 const { Client } = require('pg')
 const axios = require('axios')
-
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
 
@@ -292,7 +290,12 @@ bot.on('text', async ctx => {
 	}
 })
 
-bot.launch()
+bot.launch({
+	webhook: {
+		domain: 'https://myaddress.com',
+		port: 4000,
+	},
+})
 
 process.once('SIGINT', async () => {
 	try {
