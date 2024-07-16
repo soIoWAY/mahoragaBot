@@ -290,12 +290,7 @@ bot.on('text', async ctx => {
 	}
 })
 
-bot.launch({
-	webhook: {
-		domain: 'https://mahoraga-bot.vercel.app/',
-		port: process.env.PORT || 3000,
-	},
-})
+bot.launch()
 
 process.once('SIGINT', async () => {
 	try {
