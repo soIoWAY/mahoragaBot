@@ -1,6 +1,7 @@
 require('dotenv').config()
 const { Telegraf } = require('telegraf')
 const weatherCommandHandler = require('../handlers/weatherCommand')
+const rtgCommandHandler = require('../handlers/rtgCommandHandler')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
@@ -31,6 +32,8 @@ bot.start(async ctx => {
 })
 
 bot.command('weatherNow', weatherCommandHandler)
+
+bot.command('rtg', rtgCommandHandler)
 
 module.exports = async (req, res) => {
 	await bot.handleUpdate(req.body, res)
