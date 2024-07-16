@@ -132,11 +132,15 @@ bot.command('rtvs', async ctx => {
     return
   }
 
-  await ctx.replyWithAnimation(`@${username} кинув виклик ${targetUsername}`)
-  await new Promise(resolve => setTimeout(800))
-  await ctx.replyWithAnimation(
-    `https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif`
-  )
+  try {
+    await ctx.replyWithAnimation(`@${username} кинув виклик ${targetUsername}`)
+    await new Promise(resolve => setTimeout(resolve, 800))
+    await ctx.replyWithAnimation(
+      'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
+    )
+  } catch (error) {
+    console.error('Помилка:', error)
+  }
 })
 bot.command('purple', async ctx => {
   const messages = [
