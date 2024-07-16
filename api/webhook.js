@@ -120,20 +120,23 @@ bot.command('weatherNow', weatherCommandHandler)
 bot.command('rtg', rtgCommandHandler)
 bot.command('rts', rtsCommandHandler)
 bot.command('rtm', rtmCommandHandler)
-bot.command('rtVs', ctx => {
+bot.command('rtvs', async ctx => {
   const username = ctx.message.from.username
-  const chatId = ctx.chat.id
+  const messageText = ctx.message.text
+  const targetUsername = messageText.split(' ')[1]
 
-  ctx.reply(`${username} відправив виклик (прийняти? так/ні)`)
-
-  const yesHandler = async ctx => {
-    if (ctx.message.text.toLowerCase() === 'так') {
-      await ctx.replyWithAnimation(
-        'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
-      )
-    }
+  if (!targetUsername) {
+    await ctx.reply(
+      "Вкажіть ім'я користувача, кому ви хочете відправити виклик."
+    )
+    return
   }
-  bot.on('text', yesHandler)
+
+  await ctx.replyWithAnimation(`@${username} кинув виклик ${targetUsername}`)
+  await new Promise(resolve => setTimeout(800))
+  await ctx.replyWithAnimation(
+    `https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif`
+  )
 })
 bot.command('purple', async ctx => {
   const messages = [
