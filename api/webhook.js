@@ -2,7 +2,7 @@ require('dotenv').config()
 const { Telegraf } = require('telegraf')
 const weatherCommandHandler = require('../handlers/weatherCommand')
 const rtgCommandHandler = require('../handlers/rtgCommandHandler')
-const rtsCommandHandler = require('../handlers/rtgCommandHandler')
+const rtsCommandHandler = require('../handlers/rtsCommandHandler')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
