@@ -49,6 +49,16 @@ bot.command('purple', async ctx => {
 	]
 	await sendMessages(ctx, messages, 800)
 })
+bot.command('slash', async ctx => {
+	const messages = [
+		'Scale of the dragon',
+		'Recoil',
+		'Twin meteors',
+		'World Cutting slash',
+		'https://media1.tenor.com/m/C_LTrUH8TKUAAAAd/sukuna-true-form-sukuna-vs-kashimo.gif',
+	]
+	await sendMessages(ctx, messages, 800)
+})
 
 module.exports = async (req, res) => {
 	await bot.handleUpdate(req.body, res)
