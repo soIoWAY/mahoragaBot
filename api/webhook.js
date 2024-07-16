@@ -274,7 +274,7 @@ bot.on('text', async ctx => {
     } catch (error) {
       console.error(error)
     }
-  } else if (messageText.startsWith('виклик ')) {
+  } else if (messageText.toLocaleLowerCase().includes('виклик')) {
     const parts = messageText.split(' ')
     if (parts.length !== 2) {
       await ctx.reply("Неправильний формат. Введіть 'виклик юзернейм'.")
