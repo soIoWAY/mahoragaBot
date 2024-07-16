@@ -37,6 +37,18 @@ bot.command('weatherNow', weatherCommandHandler)
 bot.command('rtg', rtgCommandHandler)
 bot.command('rts', rtsCommandHandler)
 bot.command('rtm', rtmCommandHandler)
+bot.command('purple', async ctx => {
+	const messages = [
+		'Phase twilight',
+		'Eyes of wisdom',
+		'Nine ropes',
+		'Crow and declaration',
+		'Between front and back',
+		'Hollow... Purple',
+		'https://media1.tenor.com/m/DSyo0NKX8gMAAAAC/gojo-satoru.gif',
+	]
+	await sendMessages(ctx, messages, 800)
+})
 
 module.exports = async (req, res) => {
 	await bot.handleUpdate(req.body, res)
