@@ -276,19 +276,12 @@ bot.on('text', async ctx => {
     }
   } else if (messageText.toLocaleLowerCase().includes('виклик')) {
     const parts = messageText.split(' ')
-    if (parts.length !== 2) {
-      await ctx.reply("Неправильний формат. Введіть 'виклик юзернейм'.")
-      return
-    }
-
     const username = ctx.message.from.username
     const messageText = ctx.message.text
     const targetUsername = parts[1]
 
     try {
-      await ctx.replyWithAnimation(
-        `@${username} кинув виклик ${targetUsername}`
-      )
+      await ctx.reply(`@${username} кинув виклик ${targetUsername}`)
       await new Promise(resolve => setTimeout(resolve, 800))
       await ctx.replyWithAnimation(
         'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
