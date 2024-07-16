@@ -120,27 +120,19 @@ bot.command('weatherNow', weatherCommandHandler)
 bot.command('rtg', rtgCommandHandler)
 bot.command('rts', rtsCommandHandler)
 bot.command('rtm', rtmCommandHandler)
-bot.command('rtVs', async ctx => {
+bot.command('rtVs', ctx => {
+  const username = ctx.message.from.username
   const chatId = ctx.chat.id
 
-  await ctx.reply('Виклик відправлено')
+  ctx.reply(`${username} відправив виклик (прийняти? так/ні)`)
 
-  const replyListener = async ctx => {
-    if (ctx.message.text === 'прийняти') {
+  bot.on('text', async ctx => {
+    if (ctx.message.text.toLowerCase() === 'так') {
       await ctx.replyWithAnimation(
         'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
       )
-
-      bot.off('text', replyListener)
-    } else {
-      await ctx.reply('Чи приймаєте виклик? (відповідь "прийняти")')
     }
-  }
-
-  bot.on('text', replyListener)
-
-  // Відправляємо запит для відповіді
-  await ctx.reply('Чи приймаєте виклик? (відповідь "прийняти")')
+  })
 })
 bot.command('purple', async ctx => {
   const messages = [
