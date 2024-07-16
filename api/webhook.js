@@ -34,7 +34,7 @@ bot.start(async ctx => {
 
 bot.command('weatherNow', weatherCommandHandler)
 bot.command('rtg', rtgCommandHandler)
-bot.command('rts', rtgCommandHandler)
+bot.command('rts', rtsCommandHandler)
 
 module.exports = async (req, res) => {
 	await bot.handleUpdate(req.body, res)
