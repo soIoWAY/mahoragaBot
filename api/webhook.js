@@ -142,6 +142,22 @@ bot.command('slash', async ctx => {
 	]
 	await sendMessages(ctx, messages, 800)
 })
+bot.command('topm', async ctx => {
+	try {
+		const rows = await topUsersByMessage()
+
+		let message = 'Топ за кількістю повідомлень:\n'
+		rows.forEach((row, index) => {
+			message += `${index + 1}. @${row.username} - Повідомлення: ${
+				row.message_count + row.ban_message_count
+			}, з них матів: ${row.ban_message_count}\n`
+		})
+
+		await ctx.reply(message)
+	} catch (err) {
+		console.error('Помилка виконання команди topm: ', err)
+	}
+})
 
 bot.on('text', async ctx => {
 	const messageText = ctx.message.text
