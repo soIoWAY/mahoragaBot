@@ -1,14 +1,6 @@
 require('dotenv').config()
 const { Telegraf } = require('telegraf')
 const { Client } = require('pg')
-const weatherCommandHandler = require('../handlers/weatherCommand')
-const rtgCommandHandler = require('../handlers/rtgCommandHandler')
-const rtsCommandHandler = require('../handlers/rtsCommandHandler')
-const rtmCommandHandler = require('../handlers/rtmCommandHandler')
-const createTableQuery = require('../db/dbQuery')
-const selectUserMessagesQuery = require('../db/dbQuery')
-const insertUserMessageQuery = require('../db/dbQuery')
-const updateUserBanMessageCountQuery = require('../db/dbQuery')
 const client = new Client({
 	connectionString: process.env.DATABASE_URL,
 	ssl: {
@@ -21,10 +13,25 @@ client
 	.then(() => console.log('Успішно підключено до бази даних PostgreSQL'))
 	.catch(err => console.error('Помилка підключення до бд: ', err))
 
+const createTableQuery = `
+  CREATE TABLE IF NOT EXISTS user_messages (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    username TEXT,
+    message_count INTEGER DEFAULT 0,
+    ban_message_count INTEGER DEFAULT 0
+  );
+`
+
 client
 	.query(createTableQuery)
 	.then(() => console.log('Таблиця user_messages створена успішно'))
 	.catch(err => console.error('Помилка створення таблиці:', err))
+
+const weatherCommandHandler = require('../handlers/weatherCommand')
+const rtgCommandHandler = require('../handlers/rtgCommandHandler')
+const rtsCommandHandler = require('../handlers/rtsCommandHandler')
+const rtmCommandHandler = require('../handlers/rtmCommandHandler')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
@@ -46,12 +53,17 @@ async function sendMessages(ctx, messages, delay) {
 
 async function updateBanMessageCount(user_id, username) {
 	try {
-		const { rows } = await client.query(selectUserMessagesQuery, [user_id])
+		const query = 'SELECT * FROM user_messages WHERE user_id = $1'
+		const { rows } = await client.query(query, [user_id])
 
 		if (rows.length === 0) {
-			await client.query(insertUserMessageQuery, [user_id, username])
+			const insertQuery =
+				'INSERT INTO user_messages (user_id, username, ban_message_count) VALUES ($1, $2, 1)'
+			await client.query(insertQuery, [user_id, username])
 		} else {
-			await client.query(updateUserBanMessageCountQuery, [user_id])
+			const updateQuery =
+				'UPDATE user_messages SET ban_message_count = ban_message_count + 1 WHERE user_id = $1'
+			await client.query(updateQuery, [user_id])
 		}
 	} catch (err) {
 		console.error('Помилка зміни кількості повідомлень в бд: ', err)
@@ -60,10 +72,13 @@ async function updateBanMessageCount(user_id, username) {
 
 async function updateMessageCount(user_id, username) {
 	try {
-		const { rows } = await client.query(selectUserMessagesQuery, [user_id])
+		const query = 'SELECT * FROM user_messages WHERE user_id = $1'
+		const { rows } = await client.query(query, [user_id])
 
 		if (rows.length === 0) {
-			await client.query(insertUserMessageQuery, [user_id, username])
+			const insertQuery =
+				'INSERT INTO user_messages (user_id, username, message_count) VALUES ($1, $2, 1)'
+			await client.query(insertQuery, [user_id, username])
 		} else {
 			const updateQuery =
 				'UPDATE user_messages SET message_count = message_count + 1 WHERE user_id = $1'
@@ -126,23 +141,6 @@ bot.command('slash', async ctx => {
 		'https://media1.tenor.com/m/C_LTrUH8TKUAAAAd/sukuna-true-form-sukuna-vs-kashimo.gif',
 	]
 	await sendMessages(ctx, messages, 800)
-})
-
-bot.command('topm', async ctx => {
-	try {
-		const rows = await topUsersByMessage()
-
-		let message = 'Топ за кількістю повідомлень:\n'
-		rows.forEach((row, index) => {
-			message += `${index + 1}. @${row.username} - Повідомлення: ${
-				row.message_count + row.ban_message_count
-			}, з них матів: ${row.ban_message_count}\n`
-		})
-
-		await ctx.reply(message)
-	} catch (err) {
-		console.error('Помилка виконання команди topm: ', err)
-	}
 })
 
 bot.on('text', async ctx => {
