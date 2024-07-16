@@ -120,6 +120,16 @@ bot.command('weatherNow', weatherCommandHandler)
 bot.command('rtg', rtgCommandHandler)
 bot.command('rts', rtsCommandHandler)
 bot.command('rtm', rtmCommandHandler)
+bot.command('rtVs', async ctx => {
+  const chatId = ctx.chat.id
+  ctx.reply('Виклик відправлено')
+  bot.hears('прийняти', ctx => {
+    ctx.replyWithAnimation(
+      'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
+    )
+  })
+  ctx.reply('Чи приймаєте виклик? (відповідь "прийняти")')
+})
 bot.command('purple', async ctx => {
   const messages = [
     'Phase twilight',
