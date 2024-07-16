@@ -120,28 +120,6 @@ bot.command('weatherNow', weatherCommandHandler)
 bot.command('rtg', rtgCommandHandler)
 bot.command('rts', rtsCommandHandler)
 bot.command('rtm', rtmCommandHandler)
-bot.command('rtvs', async ctx => {
-  const username = ctx.message.from.username
-  const messageText = ctx.message.text
-  const targetUsername = messageText.split(' ')[1]
-
-  if (!targetUsername) {
-    await ctx.reply(
-      "Вкажіть ім'я користувача, кому ви хочете відправити виклик."
-    )
-    return
-  }
-
-  try {
-    await ctx.replyWithAnimation(`@${username} кинув виклик ${targetUsername}`)
-    await new Promise(resolve => setTimeout(resolve, 800))
-    await ctx.replyWithAnimation(
-      'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
-    )
-  } catch (error) {
-    console.error('Помилка:', error)
-  }
-})
 bot.command('purple', async ctx => {
   const messages = [
     'Phase twilight',
@@ -295,6 +273,28 @@ bot.on('text', async ctx => {
       await ctx.replyWithPhoto('https://i.imgur.com/tKeUWiN.jpeg')
     } catch (error) {
       console.error(error)
+    }
+  } else if (messageText.toLocaleLowerCase().startsWith('виклик')) {
+    const parts = messageText.split(' ')
+    if (parts.length !== 2) {
+      await ctx.reply("Неправильний формат. Введіть 'виклик юзернейм'.")
+      return
+    }
+
+    const username = ctx.message.from.username
+    const messageText = ctx.message.text
+    const targetUsername = parts[1]
+
+    try {
+      await ctx.replyWithAnimation(
+        `@${username} кинув виклик ${targetUsername}`
+      )
+      await new Promise(resolve => setTimeout(resolve, 800))
+      await ctx.replyWithAnimation(
+        'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
+      )
+    } catch (error) {
+      console.error('Помилка:', error)
     }
   } else {
     const user_id = ctx.message.from.id
