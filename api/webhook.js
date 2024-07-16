@@ -126,13 +126,14 @@ bot.command('rtVs', ctx => {
 
   ctx.reply(`${username} відправив виклик (прийняти? так/ні)`)
 
-  bot.on('text', async ctx => {
+  const yesHandler = async ctx => {
     if (ctx.message.text.toLowerCase() === 'так') {
       await ctx.replyWithAnimation(
         'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
       )
     }
-  })
+  }
+  bot.on('text', yesHandler)
 })
 bot.command('purple', async ctx => {
   const messages = [
