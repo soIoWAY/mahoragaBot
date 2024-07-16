@@ -275,9 +275,9 @@ bot.on('text', async ctx => {
       console.error(error)
     }
   } else if (messageText.toLocaleLowerCase().includes('виклик')) {
+    const messageText = ctx.message.text
     const parts = messageText.split(' ')
     const username = ctx.message.from.username
-    const messageText = ctx.message.text
     const targetUsername = parts[1]
 
     try {
