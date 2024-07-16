@@ -1,14 +1,12 @@
 async function rtgCommandHandler(ctx) {
 	try {
 		await ctx.reply('Розширення території... 🤞')
-		setTimeout(async () => {
-			await ctx.reply('Нескінченна порожнеча!')
-			setTimeout(async () => {
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/FdEyz5OrqLwAAAAC/jjk.gif'
-				)
-			}, 750)
-		}, 750)
+		await new Promise(resolve => setTimeout(resolve, 800))
+		await ctx.reply('Нескінченна порожнеча!')
+		await new Promise(resolve => setTimeout(resolve, 800))
+		await ctx.replyWithAnimation(
+			'https://media1.tenor.com/m/FdEyz5OrqLwAAAAC/jjk.gif'
+		)
 	} catch (err) {
 		console.error('Помилка виконання команди rtg: ', err)
 	}
