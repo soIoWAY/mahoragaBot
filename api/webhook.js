@@ -123,11 +123,19 @@ bot.command('rtm', rtmCommandHandler)
 bot.command('rtVs', async ctx => {
   const chatId = ctx.chat.id
   await ctx.reply('Виклик відправлено')
-  bot.hears('прийняти', async ctx => {
-    await ctx.replyWithAnimation(
-      'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
-    )
+
+  const replyListener = bot.on('text', async ctx => {
+    if (ctx.message.text === 'прийняти') {
+      await ctx.replyWithAnimation(
+        'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
+      )
+      replyListener.stop()
+    } else {
+      await ctx.reply('Чи приймаєте виклик? (відповідь "прийняти")')
+    }
   })
+
+  // Відправляємо запит для відповіді
   await ctx.reply('Чи приймаєте виклик? (відповідь "прийняти")')
 })
 bot.command('purple', async ctx => {
