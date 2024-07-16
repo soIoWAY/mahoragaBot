@@ -3,6 +3,7 @@ const { Telegraf } = require('telegraf')
 const weatherCommandHandler = require('../handlers/weatherCommand')
 const rtgCommandHandler = require('../handlers/rtgCommandHandler')
 const rtsCommandHandler = require('../handlers/rtsCommandHandler')
+const rtmCommandHandler = require('../handlers/rtmCommandHandler')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
@@ -35,6 +36,7 @@ bot.start(async ctx => {
 bot.command('weatherNow', weatherCommandHandler)
 bot.command('rtg', rtgCommandHandler)
 bot.command('rts', rtsCommandHandler)
+bot.command('rtm', rtmCommandHandler)
 
 module.exports = async (req, res) => {
 	await bot.handleUpdate(req.body, res)

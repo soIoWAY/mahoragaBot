@@ -7,7 +7,9 @@ async function rtsCommandHandler(ctx) {
 		await ctx.replyWithAnimation(
 			'https://media1.tenor.com/m/WCHHpHEPq7MAAAAd/sukuna.gif'
 		)
-	} catch {}
+	} catch (error) {
+		console.error(error)
+	}
 }
 
 module.exports = rtsCommandHandler
