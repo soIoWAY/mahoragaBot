@@ -1,6 +1,6 @@
 async function wdragoCommandHandler(ctx) {
 	const username = ctx.message.from.username
-	if (username !== 'NightHanami' || username !== 'xzvetal') {
+	if (username !== 'NightHanami' && username !== 'xzvetal') {
 		await ctx.reply('Ти не Гето Сугуру!')
 	} else {
 		try {
