@@ -213,7 +213,7 @@ bot.on('text', async ctx => {
 		const parts = messageText.split(' ')
 		const username = ctx.message.from.username
 		const targetUsername = parts[1]
-		if (targetUsername === 'NightHanami') {
+		if (messageText.includes('NightHanami')) {
 			await ctx.reply(
 				`@${username} розпочав битву територій проти ${targetUsername}`
 			)
@@ -227,7 +227,7 @@ bot.on('text', async ctx => {
 			await ctx.replyWithAnimation(
 				'https://media1.tenor.com/m/Xjz7N5T75aIAAAAd/jujutsu-kaisen-season-2.gif'
 			)
-		} else if (targetUsername === 'xzvetal' && username === 'NightHanami') {
+		} else if (username === 'NightHanami' && messageText.includes('xzvetal')) {
 			await ctx.replyWithAnimation(
 				'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
 			)
