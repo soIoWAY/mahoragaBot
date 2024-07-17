@@ -213,15 +213,32 @@ bot.on('text', async ctx => {
 		const parts = messageText.split(' ')
 		const username = ctx.message.from.username
 		const targetUsername = parts[1]
-
-		try {
-			await ctx.reply(`@${username} кинув виклик ${targetUsername}`)
+		if (targetUsername === 'NightHanami') {
+			await ctx.reply(
+				`@${username} розпочав битву територій проти ${targetUsername}`
+			)
+			await new Promise(resolve => setTimeout(resolve, 800))
+			await ctx.reply('Прибув Годжо Сатору')
 			await new Promise(resolve => setTimeout(resolve, 800))
 			await ctx.replyWithAnimation(
 				'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
 			)
-		} catch (error) {
-			console.error('Помилка:', error)
+			await new Promise(resolve => setTimeout(resolve, 800))
+			await ctx.replyWithAnimation(
+				'https://media1.tenor.com/m/Xjz7N5T75aIAAAAd/jujutsu-kaisen-season-2.gif'
+			)
+		} else {
+			try {
+				await ctx.reply(
+					`@${username} розпочав битву територій проти ${targetUsername}`
+				)
+				await new Promise(resolve => setTimeout(resolve, 800))
+				await ctx.replyWithAnimation(
+					'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
+				)
+			} catch (error) {
+				console.error('Помилка:', error)
+			}
 		}
 	} else {
 		const user_id = ctx.message.from.id
