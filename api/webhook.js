@@ -2,10 +2,11 @@ require('dotenv').config()
 const { Telegraf } = require('telegraf')
 const { Client } = require('pg')
 const weatherCommandHandler = require('../handlers/weatherCommand')
-const rtgCommandHandler = require('../handlers/rtgCommandHandler')
-const rtsCommandHandler = require('../handlers/rtsCommandHandler')
+const rtgCommandHandler = require('../handlers/gojo/rtgCommandHandler')
+const rtsCommandHandler = require('../handlers/sukuna/rtsCommandHandler')
 const rtmCommandHandler = require('../handlers/rtmCommandHandler')
 const topmCommandHandler = require('../handlers/topmCommandHandler')
+const purpleCommandHandler = require('../handlers/gojo/purpleCommandHandler')
 const banWords = require('../content/banWords')
 const clowns = require('../content/clowns')
 const gNames = require('../content/gNames')
@@ -123,14 +124,7 @@ bot.command('weatherNow', weatherCommandHandler)
 bot.command('rtg', rtgCommandHandler)
 bot.command('rts', rtsCommandHandler)
 bot.command('rtm', rtmCommandHandler)
-bot.command('purple', async ctx => {
-	const messages = [
-		'Phase twilight\nEyes of wisdom\nNine ropes',
-		'Crow and declaration\nBetween front and back\nHollow... Purple',
-		'https://media1.tenor.com/m/DSyo0NKX8gMAAAAC/gojo-satoru.gif',
-	]
-	await sendMessages(ctx, messages, 800)
-})
+bot.command('purple', purpleCommandHandler)
 bot.command('slash', async ctx => {
 	const messages = [
 		'Scale of the dragon\nRecoil\nTwin meteors\nWorld Cutting slash',
