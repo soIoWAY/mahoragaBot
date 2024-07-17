@@ -42,21 +42,6 @@ client
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
 
-async function sendMessages(ctx, messages, delay) {
-	for (const message of messages) {
-		try {
-			if (!message.includes('.gif')) {
-				await ctx.reply(message)
-			} else {
-				await ctx.replyWithAnimation(message)
-			}
-			await new Promise(resolve => setTimeout(resolve, delay))
-		} catch (err) {
-			console.error('Помилка надсилання повідомлення: ', err)
-		}
-	}
-}
-
 async function updateBanMessageCount(user_id, username) {
 	try {
 		const query = 'SELECT * FROM user_messages WHERE user_id = $1'
