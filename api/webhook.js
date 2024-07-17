@@ -1,6 +1,13 @@
 require('dotenv').config()
 const { Telegraf } = require('telegraf')
 const { Client } = require('pg')
+const weatherCommandHandler = require('../handlers/weatherCommand')
+const rtgCommandHandler = require('../handlers/rtgCommandHandler')
+const rtsCommandHandler = require('../handlers/rtsCommandHandler')
+const rtmCommandHandler = require('../handlers/rtmCommandHandler')
+const banWords = require('../content/banWords')
+const clowns = require('../content/clowns')
+const gNames = require('../content/gNames')
 const client = new Client({
 	connectionString: process.env.DATABASE_URL,
 	ssl: {
@@ -27,11 +34,6 @@ client
 	.query(createTableQuery)
 	.then(() => console.log('Таблиця user_messages створена успішно'))
 	.catch(err => console.error('Помилка створення таблиці:', err))
-
-const weatherCommandHandler = require('../handlers/weatherCommand')
-const rtgCommandHandler = require('../handlers/rtgCommandHandler')
-const rtsCommandHandler = require('../handlers/rtsCommandHandler')
-const rtmCommandHandler = require('../handlers/rtmCommandHandler')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
@@ -155,22 +157,6 @@ bot.command('topm', async ctx => {
 bot.on('text', async ctx => {
 	const messageText = ctx.message.text
 	const username = ctx.message.from.username
-	const clowns = ['дім', 'матв', 'чудо', 'колпаков']
-	const gNames = ['оля', 'дарин', 'олен', 'март', 'ярин', 'марічк']
-	const banWords = [
-		'сук',
-		'бля',
-		'пізда',
-		'уйобищ',
-		'єбало',
-		'їба',
-		'пезд',
-		'йобнут',
-		'підар',
-		'дебіл',
-		'лох',
-		'хуй',
-	]
 	if (
 		messageText.toLocaleLowerCase().includes('жінка') ||
 		messageText === 'МАХОРАГА ХЕЛП'
