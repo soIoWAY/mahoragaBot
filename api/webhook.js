@@ -7,9 +7,11 @@ const rtsCommandHandler = require('../handlers/sukuna/rtsCommandHandler')
 const rtmCommandHandler = require('../handlers/rtmCommandHandler')
 const topmCommandHandler = require('../handlers/topmCommandHandler')
 const purpleCommandHandler = require('../handlers/gojo/purpleCommandHandler')
+const slashCommandHandler = require('../handlers/sukuna/slashCommandHandler')
 const banWords = require('../content/banWords')
 const clowns = require('../content/clowns')
 const gNames = require('../content/gNames')
+const startCommandHandler = require('../handlers/startCommandHandler')
 const client = new Client({
 	connectionString: process.env.DATABASE_URL,
 	ssl: {
@@ -110,28 +112,14 @@ async function topUsersByMessage() {
 	}
 }
 
-bot.start(async ctx => {
-	const messages = [
-		'Нехай коло ваше почне свій рух о святосте!',
-		'Восьмиручний меч!',
-		'Святий воєвода!',
-		'МАХОРАГА!',
-	]
-	await sendMessages(ctx, messages, 800)
-})
+bot.start(startCommandHandler)
 
 bot.command('weatherNow', weatherCommandHandler)
 bot.command('rtg', rtgCommandHandler)
 bot.command('rts', rtsCommandHandler)
 bot.command('rtm', rtmCommandHandler)
 bot.command('purple', purpleCommandHandler)
-bot.command('slash', async ctx => {
-	const messages = [
-		'Scale of the dragon\nRecoil\nTwin meteors\nWorld Cutting slash',
-		'https://media1.tenor.com/m/C_LTrUH8TKUAAAAd/sukuna-true-form-sukuna-vs-kashimo.gif',
-	]
-	await sendMessages(ctx, messages, 800)
-})
+bot.command('slash', slashCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
 
 bot.on('text', async ctx => {
