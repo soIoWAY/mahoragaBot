@@ -227,6 +227,10 @@ bot.on('text', async ctx => {
 			await ctx.replyWithAnimation(
 				'https://media1.tenor.com/m/Xjz7N5T75aIAAAAd/jujutsu-kaisen-season-2.gif'
 			)
+		} else if (targetUsername === 'xzvetal' && username === 'NightHanami') {
+			await ctx.replyWithAnimation(
+				'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
+			)
 		} else {
 			try {
 				await ctx.reply(
