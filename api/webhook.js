@@ -138,7 +138,7 @@ bot.command('slash', async ctx => {
 	]
 	await sendMessages(ctx, messages, 800)
 })
-bot.command('topm', topmCommandHandler(topUsersByMessage))
+bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
 
 bot.on('text', async ctx => {
 	const messageText = ctx.message.text
