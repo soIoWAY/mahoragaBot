@@ -12,6 +12,7 @@ const banWords = require('../content/banWords')
 const clowns = require('../content/clowns')
 const gNames = require('../content/gNames')
 const startCommandHandler = require('../handlers/startCommandHandler')
+const wdragoCommandHandler = require('../handlers/geto/wdragoCommandHandler')
 const client = new Client({
 	connectionString: process.env.DATABASE_URL,
 	ssl: {
@@ -105,6 +106,7 @@ bot.command('rts', rtsCommandHandler)
 bot.command('rtm', rtmCommandHandler)
 bot.command('purple', purpleCommandHandler)
 bot.command('slash', slashCommandHandler)
+bot.command('wdrago', wdragoCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
 
 bot.on('text', async ctx => {
