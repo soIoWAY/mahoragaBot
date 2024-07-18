@@ -213,7 +213,8 @@ bot.on('text', async ctx => {
 		const parts = messageText.split(' ')
 		const username = ctx.message.from.username
 		const targetUsername = parts[1]
-		const randomWin = Math.round(Math.random())
+		const sukunaRandom = 0.5
+		const randomEq = Math.round(Math.random())
 		if (messageText.includes('NightHanami')) {
 			await ctx.reply(
 				`@${username} розпочав битву територій проти ${targetUsername}`
@@ -227,6 +228,12 @@ bot.on('text', async ctx => {
 			await new Promise(resolve => setTimeout(resolve, 800))
 			await ctx.replyWithAnimation(
 				'https://media1.tenor.com/m/Xjz7N5T75aIAAAAd/jujutsu-kaisen-season-2.gif'
+			)
+			await new Promise(resolve => setTimeout(resolve, 800))
+			await ctx.reply(`@xzvetal & @NightHanami перемогли`)
+			await new Promise(resolve => setTimeout(resolve, 800))
+			await ctx.replyWithAnimation(
+				'https://media1.tenor.com/m/80PqNpBssIgAAAAd/gojo-satoru-gojo.gif'
 			)
 		} else if (username === 'NightHanami' && messageText.includes('xzvetal')) {
 			await ctx.replyWithAnimation(
@@ -242,10 +249,18 @@ bot.on('text', async ctx => {
 					'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
 				)
 				await new Promise(resolve => setTimeout(resolve, 1000))
-				if (randomWin) {
+				if (randomWin && username === 'xzvetal') {
 					await ctx.reply(`Переміг ${username}`)
+					await new Promise(resolve => setTimeout(resolve, 800))
+					await ctx.replyWithPhoto(
+						'https://i.pinimg.com/564x/c8/cc/eb/c8cceb76cf719d57f63c93730289fd79.jpg'
+					)
 				} else {
-					await ctx.reply(`Переміг ${targetUsername}`)
+					await ctx.reply(`Переміг @${targetUsername}`)
+					await new Promise(resolve => setTimeout(resolve, 800))
+					await ctx.replyWithPhoto(
+						'https://i.pinimg.com/736x/30/b9/67/30b967b7f06d4757516f7df3e521450f.jpg'
+					)
 				}
 			} catch (error) {
 				console.error('Помилка:', error)
