@@ -250,21 +250,21 @@ bot.on('text', async ctx => {
 					await ctx.reply(
 						`@${username} розпочав битву територій проти ${targetUsername}`
 					)
-					await new Promise(resolve => setTimeout(resolve, 800))
+					await new Promise(resolve => setTimeout(resolve, 1000))
 					await rtgCommandHandler(ctx)
-					await await new Promise(resolve => setTimeout(resolve, 800))
+					await await new Promise(resolve => setTimeout(resolve, 1000))
 					await rtsCommandHandler(ctx)
-					await new Promise(resolve => setTimeout(resolve, 800))
+					await new Promise(resolve => setTimeout(resolve, 1000))
 					await ctx.replyWithAnimation(
 						'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
 					)
 					await new Promise(resolve => setTimeout(resolve, 1000))
 					if (randomEq) {
 						await ctx.reply(`Переміг @${username}`)
-						await new Promise(resolve => setTimeout(resolve, 800))
+						await new Promise(resolve => setTimeout(resolve, 1000))
 					} else {
 						await ctx.reply(`Переміг ${targetUsername}`)
-						await new Promise(resolve => setTimeout(resolve, 800))
+						await new Promise(resolve => setTimeout(resolve, 1000))
 					}
 				} catch (error) {
 					console.error('Помилка:', error)
