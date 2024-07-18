@@ -249,14 +249,14 @@ bot.on('text', async ctx => {
 					'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
 				)
 				await new Promise(resolve => setTimeout(resolve, 1000))
-				if (randomWin && username === 'xzvetal') {
-					await ctx.reply(`Переміг ${username}`)
+				if (randomWin) {
+					await ctx.reply(`Переміг @xzvetal`)
 					await new Promise(resolve => setTimeout(resolve, 800))
 					await ctx.replyWithPhoto(
 						'https://i.pinimg.com/564x/c8/cc/eb/c8cceb76cf719d57f63c93730289fd79.jpg'
 					)
 				} else {
-					await ctx.reply(`Переміг @${targetUsername}`)
+					await ctx.reply(`Переміг @@H4untt`)
 					await new Promise(resolve => setTimeout(resolve, 800))
 					await ctx.replyWithPhoto(
 						'https://i.pinimg.com/736x/30/b9/67/30b967b7f06d4757516f7df3e521450f.jpg'
