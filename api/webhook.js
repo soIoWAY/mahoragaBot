@@ -213,52 +213,59 @@ bot.on('text', async ctx => {
 		const parts = messageText.split(' ')
 		const username = ctx.message.from.username
 		const targetUsername = parts[1]
-		const sukunaRandom = 0.5
 		const randomEq = Math.round(Math.random())
-		if (messageText.includes('NightHanami')) {
-			await ctx.reply(
-				`@${username} розпочав битву територій проти ${targetUsername}`
-			)
-			await new Promise(resolve => setTimeout(resolve, 800))
-			await ctx.reply('Прибув Годжо Сатору')
-			await new Promise(resolve => setTimeout(resolve, 800))
-			await ctx.replyWithAnimation(
-				'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
-			)
-			await new Promise(resolve => setTimeout(resolve, 800))
-			await ctx.replyWithAnimation(
-				'https://media1.tenor.com/m/Xjz7N5T75aIAAAAd/jujutsu-kaisen-season-2.gif'
-			)
-			await new Promise(resolve => setTimeout(resolve, 800))
-			await ctx.reply(`@xzvetal & @NightHanami перемогли`)
-			await new Promise(resolve => setTimeout(resolve, 800))
-			await ctx.replyWithAnimation(
-				'https://media1.tenor.com/m/80PqNpBssIgAAAAd/gojo-satoru-gojo.gif'
-			)
-		} else if (username === 'NightHanami' && messageText.includes('xzvetal')) {
-			await ctx.replyWithAnimation(
-				'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
-			)
-		} else {
-			try {
+		const usernames = ['xzvetal', 'NightHanami', '@H4untt']
+		if (usernames.includes(username)) {
+			if (messageText.includes('NightHanami')) {
 				await ctx.reply(
 					`@${username} розпочав битву територій проти ${targetUsername}`
 				)
 				await new Promise(resolve => setTimeout(resolve, 800))
+				await ctx.reply('Прибув Годжо Сатору')
+				await new Promise(resolve => setTimeout(resolve, 800))
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
 				)
-				await new Promise(resolve => setTimeout(resolve, 1000))
-				if (randomEq) {
-					await ctx.reply(`Переміг @${username}`)
+				await new Promise(resolve => setTimeout(resolve, 800))
+				await ctx.replyWithAnimation(
+					'https://media1.tenor.com/m/Xjz7N5T75aIAAAAd/jujutsu-kaisen-season-2.gif'
+				)
+				await new Promise(resolve => setTimeout(resolve, 800))
+				await ctx.reply(`@xzvetal & @NightHanami перемогли`)
+				await new Promise(resolve => setTimeout(resolve, 800))
+				await ctx.replyWithAnimation(
+					'https://media1.tenor.com/m/80PqNpBssIgAAAAd/gojo-satoru-gojo.gif'
+				)
+			} else if (
+				username === 'NightHanami' &&
+				messageText.includes('xzvetal')
+			) {
+				await ctx.replyWithAnimation(
+					'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
+				)
+			} else {
+				try {
+					await ctx.reply(
+						`@${username} розпочав битву територій проти ${targetUsername}`
+					)
 					await new Promise(resolve => setTimeout(resolve, 800))
-				} else {
-					await ctx.reply(`Переміг ${targetUsername}`)
-					await new Promise(resolve => setTimeout(resolve, 800))
+					await ctx.replyWithAnimation(
+						'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
+					)
+					await new Promise(resolve => setTimeout(resolve, 1000))
+					if (randomEq) {
+						await ctx.reply(`Переміг @${username}`)
+						await new Promise(resolve => setTimeout(resolve, 800))
+					} else {
+						await ctx.reply(`Переміг ${targetUsername}`)
+						await new Promise(resolve => setTimeout(resolve, 800))
+					}
+				} catch (error) {
+					console.error('Помилка:', error)
 				}
-			} catch (error) {
-				console.error('Помилка:', error)
 			}
+		} else {
+			await ctx.reply('Якаааа тобі битва територій? Що ти будеш розширювати?')
 		}
 	} else {
 		const user_id = ctx.message.from.id
