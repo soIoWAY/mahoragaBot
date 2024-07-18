@@ -13,7 +13,14 @@ async function purpleCommandHandler(ctx) {
 		]
 		await sendMessages(ctx, messages, 850)
 		await new Promise(resolve => setTimeout(resolve, 1000))
-		await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
+		if (targetUsername === '@H4untt') {
+			const isMahoraAdapt = Math.random()
+			if (isMahoraAdapt > 0.6) {
+				await ctx.reply('Махорага зміг адаптуватись')
+			} else {
+				await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
+			}
+		}
 	}
 }
 
