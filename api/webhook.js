@@ -267,7 +267,7 @@ bot.on('text', async ctx => {
 						'https://i.pinimg.com/564x/63/67/de/6367de152d753a3187388a2d451a827c.jpg'
 					)
 					await new Promise(resolve => setTimeout(resolve, 1000))
-					await ctx.replyWithAnimation(
+					await ctx.replyWithPhoto(
 						'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
 					)
 					await new Promise(resolve => setTimeout(resolve, 1000))
