@@ -12,3 +12,5 @@ async function wormCommandHanlder(ctx) {
 		)
 	}
 }
+
+module.exports = wormCommandHanlder
