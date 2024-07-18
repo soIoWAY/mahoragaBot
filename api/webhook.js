@@ -108,6 +108,7 @@ bot.command('rtm', rtmCommandHandler)
 bot.command('purple', purpleCommandHandler)
 bot.command('slash', slashCommandHandler)
 bot.command('wdrago', wdragoCommandHandler)
+bot.command('worm', wormCommandHanlder)
 bot.command('roles', rolesCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
 
@@ -237,13 +238,6 @@ bot.on('text', async ctx => {
 				await new Promise(resolve => setTimeout(resolve, 800))
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/80PqNpBssIgAAAAd/gojo-satoru-gojo.gif'
-				)
-			} else if (
-				username === 'NightHanami' &&
-				messageText.includes('xzvetal')
-			) {
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
 				)
 			} else {
 				try {
