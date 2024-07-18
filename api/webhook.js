@@ -13,6 +13,7 @@ const clowns = require('../content/clowns')
 const gNames = require('../content/gNames')
 const startCommandHandler = require('../handlers/startCommandHandler')
 const wdragoCommandHandler = require('../handlers/geto/wdragoCommandHandler')
+const wormCommandHanlder = require('../handlers/geto/wormCommandHandler')
 const rolesCommandHandler = require('../handlers/rolesCommandHandler')
 const client = new Client({
 	connectionString: process.env.DATABASE_URL,
