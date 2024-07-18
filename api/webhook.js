@@ -13,6 +13,7 @@ const clowns = require('../content/clowns')
 const gNames = require('../content/gNames')
 const startCommandHandler = require('../handlers/startCommandHandler')
 const wdragoCommandHandler = require('../handlers/geto/wdragoCommandHandler')
+const rolesCommandHandler = require('../handlers/rolesCommandHandler')
 const client = new Client({
 	connectionString: process.env.DATABASE_URL,
 	ssl: {
@@ -107,6 +108,7 @@ bot.command('rtm', rtmCommandHandler)
 bot.command('purple', purpleCommandHandler)
 bot.command('slash', slashCommandHandler)
 bot.command('wdrago', wdragoCommandHandler)
+bot.command('roles', rolesCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
 
 bot.on('text', async ctx => {
@@ -216,7 +218,7 @@ bot.on('text', async ctx => {
 		const randomEq = Math.round(Math.random())
 		const usernames = ['xzvetal', 'NightHanami', 'H4untt']
 		if (usernames.includes(username)) {
-			if (messageText.includes('NightHanami')) {
+			if (messageText.includes('NightHanami') || username === 'NightHanami') {
 				await ctx.reply(
 					`@${username} розпочав битву територій проти ${targetUsername}`
 				)
