@@ -213,6 +213,7 @@ bot.on('text', async ctx => {
 		const parts = messageText.split(' ')
 		const username = ctx.message.from.username
 		const targetUsername = parts[1]
+		const randomWin = Math.round(Math.random())
 		if (messageText.includes('NightHanami')) {
 			await ctx.reply(
 				`@${username} розпочав битву територій проти ${targetUsername}`
@@ -240,6 +241,12 @@ bot.on('text', async ctx => {
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
 				)
+				await new Promise(resolve => setTimeout(resolve, 1000))
+				if (randomWin) {
+					await ctx.reply(`Переміг ${username}`)
+				} else {
+					await ctx.reply(`Переміг ${targetUsername}`)
+				}
 			} catch (error) {
 				console.error('Помилка:', error)
 			}
