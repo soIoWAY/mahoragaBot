@@ -251,9 +251,21 @@ bot.on('text', async ctx => {
 						`@${username} розпочав битву територій проти ${targetUsername}`
 					)
 					await new Promise(resolve => setTimeout(resolve, 1000))
-					await rtgCommandHandler(ctx)
+					await ctx.reply('Розширення території... 🤞')
 					await new Promise(resolve => setTimeout(resolve, 1000))
-					await rtsCommandHandler(ctx)
+					await ctx.reply('Нескінченна порожнеча!')
+					await new Promise(resolve => setTimeout(resolve, 1000))
+					await ctx.replyWithPhoto(
+						'https://i.pinimg.com/564x/1d/97/12/1d971250d4f2800ac3a5b7623ab74d23.jpg'
+					)
+					await new Promise(resolve => setTimeout(resolve, 1000))
+					await ctx.reply('Розширення території... 🫸⛩️🫷')
+					await new Promise(resolve => setTimeout(resolve, 1000))
+					await ctx.reply('Гробниця зла!')
+					await new Promise(resolve => setTimeout(resolve, 1000))
+					await ctx.replyWithPhoto(
+						'https://i.pinimg.com/564x/63/67/de/6367de152d753a3187388a2d451a827c.jpg'
+					)
 					await new Promise(resolve => setTimeout(resolve, 1000))
 					await ctx.replyWithAnimation(
 						'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
