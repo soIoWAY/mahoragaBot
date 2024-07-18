@@ -232,7 +232,7 @@ bot.on('text', async ctx => {
 				)
 				await new Promise(resolve => setTimeout(resolve, 800))
 				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/Xjz7N5T75aIAAAAd/jujutsu-kaisen-season-2.gif'
+					'https://media1.tenor.com/m/86T288RZJrEAAAAC/jujutsu-kaisen-season-2.gif'
 				)
 				await new Promise(resolve => setTimeout(resolve, 800))
 				await ctx.reply(`@xzvetal & @NightHanami перемогли`)
