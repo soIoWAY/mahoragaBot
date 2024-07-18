@@ -15,6 +15,7 @@ const startCommandHandler = require('../handlers/startCommandHandler')
 const wdragoCommandHandler = require('../handlers/geto/wdragoCommandHandler')
 const wormCommandHanlder = require('../handlers/geto/wormCommandHandler')
 const rolesCommandHandler = require('../handlers/rolesCommandHandler')
+const ceyCommandHandler = require('../handlers/geto/ceyCommandHandler')
 const client = new Client({
 	connectionString: process.env.DATABASE_URL,
 	ssl: {
@@ -102,16 +103,22 @@ async function topUsersByMessage() {
 
 bot.start(startCommandHandler)
 
-bot.command('weatherNow', weatherCommandHandler)
-bot.command('rtg', rtgCommandHandler)
-bot.command('rts', rtsCommandHandler)
-bot.command('rtm', rtmCommandHandler)
+// Satoru
 bot.command('purple', purpleCommandHandler)
+bot.command('rtg', rtgCommandHandler)
+// Sukuna
+bot.command('rts', rtsCommandHandler)
 bot.command('slash', slashCommandHandler)
+// geto
 bot.command('wdrago', wdragoCommandHandler)
 bot.command('worm', wormCommandHanlder)
+bot.command('cey', ceyCommandHandler)
+// Mahito
+bot.command('rtm', rtmCommandHandler)
+// general
 bot.command('roles', rolesCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
+bot.command('weatherNow', weatherCommandHandler)
 
 bot.on('text', async ctx => {
 	const messageText = ctx.message.text
