@@ -103,9 +103,12 @@ async function topUsersByMessage() {
 
 bot.start(startCommandHandler)
 
+bot.command('weatherNow', weatherCommandHandler)
 // Satoru
 bot.command('purple', purpleCommandHandler)
+bot.command('rtg', rtgCommandHandler)
 // Sukuna
+bot.command('rts', rtsCommandHandler)
 bot.command('slash', slashCommandHandler)
 // geto
 bot.command('wdrago', wdragoCommandHandler)
@@ -116,7 +119,6 @@ bot.command('rtm', rtmCommandHandler)
 // general
 bot.command('roles', rolesCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
-bot.command('weatherNow', weatherCommandHandler)
 
 bot.on('text', async ctx => {
 	const messageText = ctx.message.text
@@ -250,33 +252,18 @@ bot.on('text', async ctx => {
 					await ctx.reply(
 						`@${username} розпочав битву територій проти ${targetUsername}`
 					)
-					await new Promise(resolve => setTimeout(resolve, 1000))
-					await ctx.reply('Розширення території... 🤞')
-					await new Promise(resolve => setTimeout(resolve, 1000))
-					await ctx.reply('Нескінченна порожнеча!')
-					await new Promise(resolve => setTimeout(resolve, 1000))
-					await ctx.replyWithPhoto(
-						'https://i.pinimg.com/564x/1d/97/12/1d971250d4f2800ac3a5b7623ab74d23.jpg'
-					)
-					await new Promise(resolve => setTimeout(resolve, 1000))
-					await ctx.reply('Розширення території... 🫸⛩️🫷')
-					await new Promise(resolve => setTimeout(resolve, 1000))
-					await ctx.reply('Гробниця зла!')
-					await new Promise(resolve => setTimeout(resolve, 1000))
-					await ctx.replyWithPhoto(
-						'https://i.pinimg.com/564x/63/67/de/6367de152d753a3187388a2d451a827c.jpg'
-					)
-					await new Promise(resolve => setTimeout(resolve, 1000))
-					await ctx.replyWithPhoto(
+					await new Promise(resolve => setTimeout(resolve, 800))
+					await ctx.replyWithAnimation(
 						'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
 					)
 					await new Promise(resolve => setTimeout(resolve, 1000))
 					if (randomEq) {
 						await ctx.reply(`Переміг @${username}`)
+						await new Promise(resolve => setTimeout(resolve, 800))
 					} else {
 						await ctx.reply(`Переміг ${targetUsername}`)
+						await new Promise(resolve => setTimeout(resolve, 800))
 					}
-					await new Promise(resolve => setTimeout(resolve, 1000))
 				} catch (error) {
 					console.error('Помилка:', error)
 				}
