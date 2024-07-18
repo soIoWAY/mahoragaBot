@@ -253,8 +253,8 @@ bot.on('text', async ctx => {
 						`@${username} розпочав битву територій проти ${targetUsername}`
 					)
 					await new Promise(resolve => setTimeout(resolve, 800))
-					rtgCommandHandler(ctx)
-					await new Promise(resolve => setTimeout(resolve, 800))
+					await rtgCommandHandler(ctx)
+					await await new Promise(resolve => setTimeout(resolve, 800))
 					rtsCommandHandler(ctx)
 					await new Promise(resolve => setTimeout(resolve, 800))
 					await ctx.replyWithAnimation(
