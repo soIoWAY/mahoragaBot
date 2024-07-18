@@ -20,6 +20,8 @@ async function purpleCommandHandler(ctx) {
 			} else {
 				await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
 			}
+		} else {
+			await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
 		}
 	}
 }

@@ -259,6 +259,7 @@ bot.on('text', async ctx => {
 						'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
 					)
 					await new Promise(resolve => setTimeout(resolve, 1000))
+					// username & hp check
 					if (randomEq) {
 						await ctx.reply(`Переміг @${username}`)
 						await new Promise(resolve => setTimeout(resolve, 800))
