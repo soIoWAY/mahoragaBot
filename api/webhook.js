@@ -252,7 +252,7 @@ bot.on('text', async ctx => {
 					)
 					await new Promise(resolve => setTimeout(resolve, 1000))
 					await rtgCommandHandler(ctx)
-					await await new Promise(resolve => setTimeout(resolve, 1000))
+					await new Promise(resolve => setTimeout(resolve, 1000))
 					await rtsCommandHandler(ctx)
 					await new Promise(resolve => setTimeout(resolve, 1000))
 					await ctx.replyWithAnimation(
@@ -261,11 +261,10 @@ bot.on('text', async ctx => {
 					await new Promise(resolve => setTimeout(resolve, 1000))
 					if (randomEq) {
 						await ctx.reply(`Переміг @${username}`)
-						await new Promise(resolve => setTimeout(resolve, 1000))
 					} else {
 						await ctx.reply(`Переміг ${targetUsername}`)
-						await new Promise(resolve => setTimeout(resolve, 1000))
 					}
+					await new Promise(resolve => setTimeout(resolve, 1000))
 				} catch (error) {
 					console.error('Помилка:', error)
 				}
