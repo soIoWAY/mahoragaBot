@@ -216,9 +216,9 @@ bot.on('text', async ctx => {
 		const username = ctx.message.from.username
 		const targetUsername = parts[1]
 		const randomEq = Math.round(Math.random())
-		const usernames = ['xzvetal', 'NightHanami', 'H4untt']
+		const usernames = ['xzvetal', 'H4untt']
 		if (usernames.includes(username)) {
-			if (messageText.includes('NightHanami') || username === 'NightHanami') {
+			if (messageText.includes('NightHanami')) {
 				await ctx.reply(
 					`@${username} розпочав битву територій проти ${targetUsername}`
 				)
