@@ -253,6 +253,10 @@ bot.on('text', async ctx => {
 						`@${username} розпочав битву територій проти ${targetUsername}`
 					)
 					await new Promise(resolve => setTimeout(resolve, 800))
+					rtgCommandHandler()
+					await new Promise(resolve => setTimeout(resolve, 800))
+					rtsCommandHandler()
+					await new Promise(resolve => setTimeout(resolve, 800))
 					await ctx.replyWithAnimation(
 						'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
 					)
