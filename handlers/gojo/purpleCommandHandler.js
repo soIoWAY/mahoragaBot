@@ -13,7 +13,7 @@ async function purpleCommandHandler(ctx) {
 		]
 		await sendMessages(ctx, messages, 850)
 		await new Promise(resolve => setTimeout(resolve, 1000))
-		await ctx.reply(`${username} влучив в ${targetUsername} фіолетовим`)
+		await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
 	}
 }
 
