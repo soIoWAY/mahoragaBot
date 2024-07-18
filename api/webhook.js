@@ -255,7 +255,7 @@ bot.on('text', async ctx => {
 					await new Promise(resolve => setTimeout(resolve, 800))
 					await rtgCommandHandler(ctx)
 					await await new Promise(resolve => setTimeout(resolve, 800))
-					rtsCommandHandler(ctx)
+					await rtsCommandHandler(ctx)
 					await new Promise(resolve => setTimeout(resolve, 800))
 					await ctx.replyWithAnimation(
 						'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
