@@ -106,9 +106,7 @@ bot.start(startCommandHandler)
 bot.command('weatherNow', weatherCommandHandler)
 // Satoru
 bot.command('purple', purpleCommandHandler)
-bot.command('rtg', rtgCommandHandler)
 // Sukuna
-bot.command('rts', rtsCommandHandler)
 bot.command('slash', slashCommandHandler)
 // geto
 bot.command('wdrago', wdragoCommandHandler)
