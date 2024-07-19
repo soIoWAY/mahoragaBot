@@ -109,7 +109,7 @@ bot.command('purple', purpleCommandHandler)
 // Sukuna
 bot.command('slash', slashCommandHandler)
 // geto
-bot.command('wdrago', wdragoCommandHandler)
+bot.command('rika', wdragoCommandHandler)
 bot.command('worm', wormCommandHanlder)
 bot.command('cey', ceyCommandHandler)
 // Mahito

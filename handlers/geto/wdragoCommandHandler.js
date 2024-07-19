@@ -8,10 +8,12 @@ async function wdragoCommandHandler(ctx) {
 	} else {
 		await ctx.reply('Маніпуляція прокляттями... 👾')
 		await new Promise(resolve => setTimeout(resolve, 800))
-		await ctx.reply('Райдужний дракон!')
+		await ctx.reply('Королева проклять!')
+		await new Promise(resolve => setTimeout(resolve, 800))
+		await ctx.reply('Ріка!')
 		await new Promise(resolve => setTimeout(resolve, 800))
 		await ctx.replyWithAnimation(
-			'https://media1.tenor.com/m/Xjz7N5T75aIAAAAd/jujutsu-kaisen-season-2.gif'
+			'https://media1.tenor.com/m/oJGVvk77WMoAAAAC/rika-vol0.gif'
 		)
 		if (usersWithRoles.includes(targetUsername)) {
 			if (targetUsername === '@xzvetal') {
@@ -21,12 +23,12 @@ async function wdragoCommandHandler(ctx) {
 			} else if (targetUsername == '@H4untt') {
 				const isAdapt = Math.random()
 				if (isAdapt > 0.5) {
-					await ctx.reply(`${targetUsername} знищив дракона розрізом`)
+					await ctx.reply(`${targetUsername} з Махорагою ухилились`)
 				} else {
-					await ctx.reply(`Дракон зніс половину хп ${targetUsername}`)
+					await ctx.reply(`Ріка знесла половину хп ${targetUsername}`)
 				}
 			} else {
-				await ctx.reply(`Райдужний дракон вбив ${targetUsername}`)
+				await ctx.reply(`Ріка знищила ${targetUsername}`)
 			}
 		} else {
 			await ctx.reply('Така слабка мавпа стала кормом для моїх проклять')
