@@ -226,25 +226,24 @@ bot.on('text', async ctx => {
 		const usernames = ['xzvetal', 'H4untt']
 		if (usernames.includes(username)) {
 			if (messageText.includes('NightHanami')) {
+				const rand = Math.random()
 				await ctx.reply(
 					`@${username} розпочав битву територій проти ${targetUsername}`
 				)
 				await new Promise(resolve => setTimeout(resolve, 800))
-				await ctx.reply('Прибув Годжо Сатору')
-				await new Promise(resolve => setTimeout(resolve, 800))
 				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
+					'https://media1.tenor.com/m/wu7M_BzAKMAAAAAC/geto-suguru-suguru-geto.gif'
 				)
 				await new Promise(resolve => setTimeout(resolve, 800))
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/86T288RZJrEAAAAC/jujutsu-kaisen-season-2.gif'
-				)
-				await new Promise(resolve => setTimeout(resolve, 800))
-				await ctx.reply(`@xzvetal & @NightHanami перемогли`)
-				await new Promise(resolve => setTimeout(resolve, 800))
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/80PqNpBssIgAAAAd/gojo-satoru-gojo.gif'
-				)
+				if (rand > 0.5) {
+					await ctx.reply(
+						`4461 прокляття знищили територію, @NightHanami переміг`
+					)
+				} else {
+					await ctx.reply(
+						`Переміг @${username}, його теориторія поглинула всі прокляття`
+					)
+				}
 			} else {
 				try {
 					await ctx.reply(
