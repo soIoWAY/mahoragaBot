@@ -17,7 +17,7 @@ async function purpleCommandHandler(ctx) {
 		if (usersWithRoles.includes(targetUsername)) {
 			if (targetUsername === '@H4untt') {
 				const isMahoraAdapt = Math.random()
-				if (isMahoraAdapt > 0.6) {
+				if (isMahoraAdapt > 0.65) {
 					await ctx.reply('Махорага зміг адаптуватись')
 				} else {
 					await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
