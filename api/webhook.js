@@ -226,23 +226,29 @@ bot.on('text', async ctx => {
 		const usernames = ['xzvetal', 'H4untt']
 		if (usernames.includes(username)) {
 			if (messageText.includes('NightHanami')) {
-				const rand = Math.random()
-				await ctx.reply(
-					`@${username} розпочав битву територій проти ${targetUsername}`
-				)
-				await new Promise(resolve => setTimeout(resolve, 800))
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/wu7M_BzAKMAAAAAC/geto-suguru-suguru-geto.gif'
-				)
-				await new Promise(resolve => setTimeout(resolve, 800))
-				if (rand > 0.5) {
-					await ctx.reply(
-						`4461 прокляття знищили територію, @NightHanami переміг`
+				if (username === 'xzvetal') {
+					await ctx.replyWithAnimation(
+						'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
 					)
 				} else {
+					const rand = Math.random()
 					await ctx.reply(
-						`Переміг @${username}, його теориторія поглинула всі прокляття`
+						`@${username} розпочав битву територій проти ${targetUsername}`
 					)
+					await new Promise(resolve => setTimeout(resolve, 800))
+					await ctx.replyWithAnimation(
+						'https://media1.tenor.com/m/wu7M_BzAKMAAAAAC/geto-suguru-suguru-geto.gif'
+					)
+					await new Promise(resolve => setTimeout(resolve, 800))
+					if (rand > 0.5) {
+						await ctx.reply(
+							`4461 прокляття знищили територію, @NightHanami переміг`
+						)
+					} else {
+						await ctx.reply(
+							`Переміг @${username}, його теориторія поглинула всі прокляття`
+						)
+					}
 				}
 			} else {
 				try {
