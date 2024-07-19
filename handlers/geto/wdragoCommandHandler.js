@@ -16,7 +16,7 @@ async function wdragoCommandHandler(ctx) {
 		if (usersWithRoles.includes(targetUsername)) {
 			if (targetUsername === '@xzvetal') {
 				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/tYFlGuVQpVcAAAAd/vfan-vfant.gif'
+					'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
 				)
 			} else if (targetUsername == '@H4untt') {
 				const isAdapt = Math.random()
