@@ -279,13 +279,13 @@ bot.on('text', async ctx => {
 			await ctx.reply('.......')
 			await new Promise(resolve => setTimeout(resolve, 1000))
 			await ctx.reply('Прокинься і подивись на реальність...')
-			await new Promise(resolve => setTimeout(resolve, 1000))
+			await new Promise(resolve => setTimeout(resolve, 2500))
 			await ctx.reply(
 				'Не завжди все йде за планом.\nВ світі де є світло, завжди буде і темрява.\nПоки є переможці, доти будуть і переможені.\nА егоїстичне бажання миру завжди веде до війни'
 			)
 			await new Promise(resolve => setTimeout(resolve, 1000))
 			await ctx.reply('ТОЖ ПОРИНЬТЕ ВСІ В ВІЧНЕ ЦУКУЙОМІ')
-			await new Promise(resolve => setTimeout(resolve, 1000))
+			await new Promise(resolve => setTimeout(resolve, 1500))
 			await ctx.replyWithAnimation(
 				'https://media1.tenor.com/m/YbopFZINhUkAAAAC/madara-uchiha-madara.gif'
 			)
