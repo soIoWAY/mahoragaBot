@@ -274,6 +274,22 @@ bot.on('text', async ctx => {
 		} else {
 			await ctx.reply('Якаааа тобі битва територій? Що ти будеш розширювати?')
 		}
+	} else if (messageText.toLocaleLowerCase().includes('я програв')) {
+		if (username === 'xzvetal') {
+			await ctx.reply('.......')
+			await new Promise(resolve => setTimeout(resolve, 1000))
+			await ctx.reply('Прокинься і подивись на реальність...')
+			await new Promise(resolve => setTimeout(resolve, 1000))
+			await ctx.reply(
+				'Не завжди все йде за планом.\nВ світі де є світло, завжди буде і темрява.\nПоки є переможці, доти будуть і переможені.\nА егоїстичне бажання миру завжди веде до війни'
+			)
+			await new Promise(resolve => setTimeout(resolve, 1000))
+			await ctx.reply('ТОЖ ПОРИНЬТЕ ВСІ В ВІЧНЕ ЦУКУЙОМІ')
+			await new Promise(resolve => setTimeout(resolve, 1000))
+			await ctx.replyWithAnimation(
+				'https://media1.tenor.com/m/YbopFZINhUkAAAAC/madara-uchiha-madara.gif'
+			)
+		}
 	} else {
 		const user_id = ctx.message.from.id
 		const username = ctx.message.from.username
