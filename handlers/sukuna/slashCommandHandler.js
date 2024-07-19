@@ -4,7 +4,7 @@ async function slashCommandHandler(ctx) {
 	const parts = ctx.message.text.split(' ')
 	const targetUsername = parts[1]
 	const usersWithRoles = ['@xzvetal', '@NightHanami', '@H4untt']
-	if (username !== 'H4untt' || username !== 'xzvetal') {
+	if (username !== 'H4untt' && username !== 'xzvetal') {
 		await ctx.reply('Ти не Рьомен Сукуна!')
 	} else {
 		const messages = [
