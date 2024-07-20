@@ -16,63 +16,11 @@ const wormCommandHanlder = require('../handlers/geto/wormCommandHandler')
 const rolesCommandHandler = require('../handlers/rolesCommandHandler')
 const ceyCommandHandler = require('../handlers/geto/ceyCommandHandler')
 const client = require('../db/database')
+const updateBanMessageCount = require('../db/updateBanMessageCount')
+const updateMessageCount = require('../db/updateMessageCount')
+const topUsersByMessage = require('../db/topUsersByMessage')
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
-
-async function updateBanMessageCount(user_id, username) {
-	try {
-		const query = 'SELECT * FROM user_messages WHERE user_id = $1'
-		const { rows } = await client.query(query, [user_id])
-
-		if (rows.length === 0) {
-			const insertQuery =
-				'INSERT INTO user_messages (user_id, username, ban_message_count) VALUES ($1, $2, 1)'
-			await client.query(insertQuery, [user_id, username])
-		} else {
-			const updateQuery =
-				'UPDATE user_messages SET ban_message_count = ban_message_count + 1 WHERE user_id = $1'
-			await client.query(updateQuery, [user_id])
-		}
-	} catch (err) {
-		console.error('Помилка зміни кількості повідомлень в бд: ', err)
-	}
-}
-
-async function updateMessageCount(user_id, username) {
-	try {
-		const query = 'SELECT * FROM user_messages WHERE user_id = $1'
-		const { rows } = await client.query(query, [user_id])
-
-		if (rows.length === 0) {
-			const insertQuery =
-				'INSERT INTO user_messages (user_id, username, message_count) VALUES ($1, $2, 1)'
-			await client.query(insertQuery, [user_id, username])
-		} else {
-			const updateQuery =
-				'UPDATE user_messages SET message_count = message_count + 1 WHERE user_id = $1'
-			await client.query(updateQuery, [user_id])
-		}
-		console.log('Оновлено кількість повідомлень для користувача:', username)
-	} catch (err) {
-		console.error('Помилка оновлення кількості повідомлень в базі даних:', err)
-	}
-}
-
-async function topUsersByMessage() {
-	try {
-		const query = `
-      SELECT username, message_count, ban_message_count 
-      FROM user_messages 
-      ORDER BY (message_count + ban_message_count) DESC 
-      LIMIT 10;
-    `
-		const { rows } = await client.query(query)
-
-		return rows
-	} catch (err) {
-		console.error('Помилка зчитування даних з бд:', err)
-	}
-}
 
 bot.start(startCommandHandler)
 
