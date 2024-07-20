@@ -1,6 +1,5 @@
 require('dotenv').config()
 const { Telegraf } = require('telegraf')
-const { Client } = require('pg')
 const weatherCommandHandler = require('../handlers/weatherCommand')
 const rtgCommandHandler = require('../handlers/gojo/rtgCommandHandler')
 const rtsCommandHandler = require('../handlers/sukuna/rtsCommandHandler')
@@ -16,33 +15,7 @@ const wdragoCommandHandler = require('../handlers/geto/wdragoCommandHandler')
 const wormCommandHanlder = require('../handlers/geto/wormCommandHandler')
 const rolesCommandHandler = require('../handlers/rolesCommandHandler')
 const ceyCommandHandler = require('../handlers/geto/ceyCommandHandler')
-const client = new Client({
-	connectionString: process.env.DATABASE_URL,
-	ssl: {
-		rejectUnauthorized: false,
-	},
-})
-
-client
-	.connect()
-	.then(() => console.log('Успішно підключено до бази даних PostgreSQL'))
-	.catch(err => console.error('Помилка підключення до бд: ', err))
-
-const createTableQuery = `
-  CREATE TABLE IF NOT EXISTS user_messages (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER,
-    username TEXT,
-    message_count INTEGER DEFAULT 0,
-    ban_message_count INTEGER DEFAULT 0
-  );
-`
-
-client
-	.query(createTableQuery)
-	.then(() => console.log('Таблиця user_messages створена успішно'))
-	.catch(err => console.error('Помилка створення таблиці:', err))
-
+const client = require('../db/database')
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
 
