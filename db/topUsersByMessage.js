@@ -4,7 +4,7 @@ async function topUsersByMessage() {
 	try {
 		const query = `
       SELECT username, message_count, ban_message_count 
-      FROM user_messages 
+      FROM users 
       ORDER BY (message_count + ban_message_count) DESC 
       LIMIT 10;
     `
