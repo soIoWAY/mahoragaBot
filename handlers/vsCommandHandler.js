@@ -18,7 +18,7 @@ async function vsCommandHandler(ctx) {
 		const sanitizedTargetUsername = targetUsername.replace(/^@/, '')
 		const targetUsernameRole = await getUserRole(sanitizedTargetUsername)
 		const sukunaVsGojoRandom = Math.round(Math.random())
-		if (username === targetUsername) {
+		if (username === sanitizedTargetUsername) {
 			await ctx.reply('-_-')
 		} else {
 			if (
