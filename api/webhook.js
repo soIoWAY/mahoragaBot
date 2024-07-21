@@ -142,68 +142,6 @@ bot.on('text', async ctx => {
 		} catch (error) {
 			console.error(error)
 		}
-	} else if (messageText.toLocaleLowerCase().includes('виклик')) {
-		const messageText = ctx.message.text
-		const parts = messageText.split(' ')
-		const username = ctx.message.from.username
-		const targetUsername = parts[1]
-		const randomEq = Math.round(Math.random())
-		const usernames = ['xzvetal', 'H4untt']
-		if (usernames.includes(username)) {
-			if (messageText.includes('NightHanami')) {
-				if (username === 'xzvetal') {
-					await ctx.replyWithAnimation(
-						'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
-					)
-				} else {
-					const rand = Math.random()
-					await ctx.reply(
-						`@${username} розпочав битву територій проти ${targetUsername}`
-					)
-					await new Promise(resolve => setTimeout(resolve, 800))
-					await ctx.replyWithAnimation(
-						'https://media1.tenor.com/m/wu7M_BzAKMAAAAAC/geto-suguru-suguru-geto.gif'
-					)
-					await new Promise(resolve => setTimeout(resolve, 800))
-					if (rand > 0.5) {
-						await ctx.reply(
-							`4461 прокляття знищили територію, @NightHanami переміг`
-						)
-					} else {
-						await ctx.reply(
-							`Переміг @${username}, його теориторія поглинула всі прокляття`
-						)
-					}
-				}
-			} else {
-				try {
-					await ctx.reply(
-						`@${username} розпочав битву територій проти ${targetUsername}`
-					)
-					await new Promise(resolve => setTimeout(resolve, 800))
-					await rtgCommandHandler(ctx)
-					await new Promise(resolve => setTimeout(resolve, 800))
-					await rtsCommandHandler(ctx)
-					await new Promise(resolve => setTimeout(resolve, 800))
-					await ctx.replyWithAnimation(
-						'https://media1.tenor.com/m/KprNz_Lhdr4AAAAd/sukuna-gojo.gif'
-					)
-					await new Promise(resolve => setTimeout(resolve, 1000))
-					// username & hp check
-					if (randomEq) {
-						await ctx.reply(`Переміг @${username}`)
-						await new Promise(resolve => setTimeout(resolve, 800))
-					} else {
-						await ctx.reply(`Переміг ${targetUsername}`)
-						await new Promise(resolve => setTimeout(resolve, 800))
-					}
-				} catch (error) {
-					console.error('Помилка:', error)
-				}
-			}
-		} else {
-			await ctx.reply('Якаааа тобі битва територій? Що ти будеш розширювати?')
-		}
 	} else {
 		const user_id = ctx.message.from.id
 		const username = ctx.message.from.username

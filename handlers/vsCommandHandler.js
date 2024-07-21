@@ -36,6 +36,7 @@ async function vsCommandHandler(ctx) {
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/2k8d9V9K74sAAAAd/gojo-satoru-sukuna.gif'
 				)
+				await delay(850)
 				if (sukunaVsGojoRandom && usernameRole === 'gojo') {
 					await ctx.reply(
 						`Нескінченна Порожнеча знищила мозок ворога, @${username} переміг`
@@ -46,7 +47,7 @@ async function vsCommandHandler(ctx) {
 					)
 				}
 			} else {
-				await ctx.reply('роль не знайдена')
+				await ctx.reply('Роль не знайдена')
 			}
 		}
 	} catch (err) {
