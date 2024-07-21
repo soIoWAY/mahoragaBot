@@ -53,6 +53,26 @@ async function vsCommandHandler(ctx) {
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
 				)
+			} else if (usernameRole === 'geto' && targetUsernameRole === 'sukuna') {
+				const sukunaVsGetoRandom = Math.random()
+				await ctx.reply('Розширення території... 🫸⛩️🫷')
+				await delay(850)
+				await ctx.reply(
+					'Маніпуляція проклятими духами... ☝️\nНайвище мистецтво...'
+				)
+				await delay(850)
+				await ctx.reply('Узумакі 🌀')
+				await delay(850)
+				await ctx.replyWithAnimation(
+					'https://media1.tenor.com/m/61GhJxxu1-oAAAAd/kenjaku-geto.gif'
+				)
+				if (sukunaVsGetoRandom > 0.6 && usernameRole === 'geto') {
+					await ctx.reply(`Вихор знищив Гробницю Зла, переміг @${username}`)
+				} else {
+					await ctx.reply(
+						`Вихор був знищений Гробницею Зла, переміг ${targetUsername}`
+					)
+				}
 			} else {
 				await ctx.reply('Роль не знайдена')
 			}
