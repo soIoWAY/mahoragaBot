@@ -2,7 +2,7 @@ const client = require('./database')
 
 async function updateBanMessageCount(user_id, username) {
 	try {
-		const query = 'SELECT * FROM usersWHERE user_id = $1'
+		const query = 'SELECT * FROM users WHERE user_id = $1'
 		const { rows } = await client.query(query, [user_id])
 
 		if (rows.length === 0) {

@@ -20,6 +20,7 @@ const client = require('../db/database')
 const updateBanMessageCount = require('../db/updateBanMessageCount')
 const updateMessageCount = require('../db/updateMessageCount')
 const topUsersByMessage = require('../db/topUsersByMessage')
+const vsCommandHandler = require('../handlers/vsCommandHandler')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
@@ -40,6 +41,7 @@ bot.command('rtm', rtmCommandHandler)
 // general
 bot.command('roles', rolesCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
+bot.command('vs', vsCommandHandler)
 
 bot.on('text', async ctx => {
 	const messageText = ctx.message.text
