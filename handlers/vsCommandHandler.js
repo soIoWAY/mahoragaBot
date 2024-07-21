@@ -46,6 +46,13 @@ async function vsCommandHandler(ctx) {
 						`Всі розрізи всередині Гробниці Зла влучили в ворога, ${targetUsername} переміг`
 					)
 				}
+			} else if (
+				(usernameRole === 'gojo' && targetUsernameRole === 'geto') ||
+				(usernameRole === 'geto' && targetUsernameRole === 'gojo')
+			) {
+				await ctx.replyWithAnimation(
+					'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
+				)
 			} else {
 				await ctx.reply('Роль не знайдена')
 			}
