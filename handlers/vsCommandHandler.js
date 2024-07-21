@@ -28,11 +28,11 @@ async function vsCommandHandler(ctx) {
 				await ctx.reply(
 					'Найсильніший маг сучасності проти найсильнішого мага в історії'
 				)
-				delay(850)
+				await delay(850)
 				await ctx.reply('Розширення території... 🤞')
-				delay(850)
+				await delay(850)
 				await ctx.reply('Розширення території... 🫸⛩️🫷')
-				delay(850)
+				await delay(850)
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/2k8d9V9K74sAAAAd/gojo-satoru-sukuna.gif'
 				)
