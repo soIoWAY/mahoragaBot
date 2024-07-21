@@ -14,3 +14,4 @@ async function getUserRole(username) {
 		return null
 	}
 }
+module.exports = getUserRole
