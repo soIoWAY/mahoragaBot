@@ -7,18 +7,20 @@ const rtmCommandHandler = require('../handlers/rtmCommandHandler')
 const topmCommandHandler = require('../handlers/topmCommandHandler')
 const purpleCommandHandler = require('../handlers/gojo/purpleCommandHandler')
 const slashCommandHandler = require('../handlers/sukuna/slashCommandHandler')
-const banWords = require('../content/banWords')
-const clowns = require('../content/clowns')
-const gNames = require('../content/gNames')
 const startCommandHandler = require('../handlers/startCommandHandler')
 const wdragoCommandHandler = require('../handlers/geto/wdragoCommandHandler')
 const wormCommandHanlder = require('../handlers/geto/wormCommandHandler')
 const rolesCommandHandler = require('../handlers/rolesCommandHandler')
 const ceyCommandHandler = require('../handlers/geto/ceyCommandHandler')
+const banWords = require('../content/banWords')
+const clowns = require('../content/clowns')
+const gNames = require('../content/gNames')
+// db
 const client = require('../db/database')
 const updateBanMessageCount = require('../db/updateBanMessageCount')
 const updateMessageCount = require('../db/updateMessageCount')
 const topUsersByMessage = require('../db/topUsersByMessage')
+
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
 
@@ -199,22 +201,6 @@ bot.on('text', async ctx => {
 			}
 		} else {
 			await ctx.reply('Якаааа тобі битва територій? Що ти будеш розширювати?')
-		}
-	} else if (messageText.toLocaleLowerCase().includes('я програв')) {
-		if (username === 'xzvetal') {
-			await ctx.reply('.......')
-			await new Promise(resolve => setTimeout(resolve, 1000))
-			await ctx.reply('Прокинься і подивись на реальність...')
-			await new Promise(resolve => setTimeout(resolve, 2500))
-			await ctx.reply(
-				'Не завжди все йде за планом.\nВ світі де є світло, завжди буде і темрява.\nПоки є переможці, доти будуть і переможені.\nА егоїстичне бажання миру завжди веде до війни'
-			)
-			await new Promise(resolve => setTimeout(resolve, 1000))
-			await ctx.reply('ТОЖ ПОРИНЬТЕ ВСІ В ВІЧНЕ ЦУКУЙОМІ')
-			await new Promise(resolve => setTimeout(resolve, 1500))
-			await ctx.replyWithAnimation(
-				'https://media1.tenor.com/m/YbopFZINhUkAAAAC/madara-uchiha-madara.gif'
-			)
 		}
 	} else {
 		const user_id = ctx.message.from.id
