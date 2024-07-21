@@ -120,9 +120,7 @@ bot.on('text', async ctx => {
 		clowns.some(clown => messageText.toLocaleLowerCase().includes(clown))
 	) {
 		try {
-			await ctx.reply(
-				`ХАХАХАХАХАХАХАХАХХАХАХ НАХУЯ ВИ ТО ЧЕРПАЦЬКЕ ІМЯ ЗГАДУЄТЕ`
-			)
+			await ctx.reply(`ХАХАХАХАХАХАХАХАХХ НАХУЯ ВИ ТО ЧЕРПАЦЬКЕ ІМЯ ЗГАДУЄТЕ`)
 		} catch (error) {
 			console.error(error)
 		}

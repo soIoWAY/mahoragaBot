@@ -23,7 +23,7 @@ async function vsCommandHandler(ctx) {
 		} else {
 			if (
 				(usernameRole === 'gojo' && targetUsernameRole === 'sukuna') ||
-				(usernameRole === 'sukuna' && targetUsername === 'gojo')
+				(usernameRole === 'sukuna' && targetUsernameRole === 'gojo')
 			) {
 				await ctx.reply(
 					'Найсильніший маг сучасності проти найсильнішого мага в історії'
