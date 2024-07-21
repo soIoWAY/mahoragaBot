@@ -37,11 +37,11 @@ async function vsCommandHandler(ctx) {
 					'https://media1.tenor.com/m/2k8d9V9K74sAAAAd/gojo-satoru-sukuna.gif'
 				)
 				await delay(850)
-				if (sukunaVsGojoRandom) {
+				if (sukunaVsGojoRandom && targetUsernameRole === 'sukuna') {
 					await ctx.reply(
 						`Нескінченна Порожнеча знищила мозок ворога, @${username} переміг`
 					)
-				} else {
+				} else if (!sukunaVsGojoRandom && targetUsernameRole === 'gojo') {
 					await ctx.reply(
 						`Всі розрізи всередині Гробниці Зла влучили в ворога, ${targetUsername} переміг`
 					)
