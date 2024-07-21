@@ -4,8 +4,8 @@ async function vsCommandHandler(ctx) {
 	const username = ctx.message.from.username
 	const parts = ctx.message.text.split(' ')
 	const targetUsername = parts[1]
-	const delay = () => {
-		new Promise(resolve => setTimeout(resolve, 850))
+	async function delay(ms) {
+		return new Promise(resolve => setTimeout(resolve, ms))
 	}
 	if (parts.length !== 2) {
 		await ctx.reply(
@@ -28,17 +28,17 @@ async function vsCommandHandler(ctx) {
 				await ctx.reply(
 					'Найсильніший маг сучасності проти найсильнішого мага в історії'
 				)
-				delay()
+				delay(850)
 				await ctx.reply('Розширення території... 🤞')
-				delay()
+				delay(850)
 				await ctx.reply('Розширення території... 🫸⛩️🫷')
-				delay()
+				delay(850)
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/2k8d9V9K74sAAAAd/gojo-satoru-sukuna.gif'
 				)
 				if (sukunaVsGojoRandom && usernameRole === 'gojo') {
 					await ctx.reply(
-						`Нескінченан Порожнеча знищила мозок ворога, @${username} переміг`
+						`Нескінченна Порожнеча знищила мозок ворога, @${username} переміг`
 					)
 				} else {
 					await ctx.reply(
