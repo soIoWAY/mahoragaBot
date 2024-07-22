@@ -85,7 +85,8 @@ async function vsCommandHandler(ctx) {
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/61GhJxxu1-oAAAAd/kenjaku-geto.gif'
 				)
-				if (sukunaVsGetoRandom > 0.6 && usernameRole === 'geto') {
+				// fun
+				if (sukunaVsGetoRandom > 0.3 && usernameRole === 'geto') {
 					await ctx.reply(`Вихор знищив Гробницю Зла, переміг @${username}`)
 				} else {
 					await ctx.reply(
