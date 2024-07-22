@@ -34,6 +34,7 @@ async function purpleCommandHandler(ctx) {
 					await ctx.replyWithAnimation(
 						'https://media1.tenor.com/m/Uk3MlwmQC90AAAAd/jujutsu-kaisen-ninjaristic.gif'
 					)
+					await delay(850)
 					await ctx.reply(
 						`@${username} влучив в ${targetUsername} 200% фіолетовим, Махорага здох`
 					)
