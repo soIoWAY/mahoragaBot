@@ -1,10 +1,17 @@
+const getUserRole = require('../../db/getUserRole')
 const sendMessages = require('../sendMessages')
 async function purpleCommandHandler(ctx) {
 	const username = ctx.message.from.username
 	const parts = ctx.message.text.split(' ')
 	const targetUsername = parts[1]
-	const usersWithRoles = ['@xzvetal', '@NightHanami', '@H4untt']
-	if (username !== 'xzvetal') {
+	const supportUsername = parts[2]
+	const usernameRole = await getUserRole(username)
+	const sanitizedTargetUsername = targetUsername.replace(/^@/, '')
+	const targetUsernameRole = await getUserRole(sanitizedTargetUsername)
+	async function delay(ms) {
+		return new Promise(resolve => setTimeout(resolve, ms))
+	}
+	if (usernameRole !== 'gojo') {
 		await ctx.reply('Ти не Годжо Сатору!')
 	} else {
 		const messages = [
@@ -14,13 +21,22 @@ async function purpleCommandHandler(ctx) {
 		]
 		await sendMessages(ctx, messages, 850)
 		await new Promise(resolve => setTimeout(resolve, 1000))
-		if (usersWithRoles.includes(targetUsername)) {
-			if (targetUsername === '@H4untt') {
+		if (targetUsernameRole) {
+			if (targetUsernameRole === 'sukuna') {
 				const isMahoraAdapt = Math.random()
-				if (isMahoraAdapt > 0.65) {
+				if (isMahoraAdapt <= 0.4) {
 					await ctx.reply('Махорага зміг адаптуватись')
-				} else {
+				} else if (isMahoraAdapt > 0.4 && isMahoraAdapt <= 0.85) {
 					await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
+				} else if (isMahoraAdapt > 0.85 && supportUsername === '@olerxv') {
+					await ctx.reply('УТАХІМЕ')
+					await delay(1000)
+					await ctx.replyWithAnimation(
+						'https://media1.tenor.com/m/Uk3MlwmQC90AAAAd/jujutsu-kaisen-ninjaristic.gif'
+					)
+					await ctx.reply(
+						`@${username} влучив в ${targetUsername} 200% фіолетовим, Махорага здох`
+					)
 				}
 			} else {
 				await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
