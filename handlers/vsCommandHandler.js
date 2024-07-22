@@ -37,13 +37,19 @@ async function vsCommandHandler(ctx) {
 					'https://media1.tenor.com/m/2k8d9V9K74sAAAAd/gojo-satoru-sukuna.gif'
 				)
 				await delay(850)
-				const isGojo = usernameRole === 'gojo'
-				const winner = sukunaVsGojoRandom
-					? sanitizedTargetUsername
-					: targetUsername
-				const winMessage = isGojo
-					? `Нескінченна Порожнеча знищила мозок ворога, @${winner} переміг`
-					: `Всі розрізи всередині Гробниці Зла влучили в ворога, @${winner} переміг`
+
+				const winner = sukunaVsGojoRandom ? username : sanitizedTargetUsername
+				const loser = sukunaVsGojoRandom ? sanitizedTargetUsername : username
+				let winMessage
+				if (usernameRole === 'gojo') {
+					winMessage = sukunaVsGojoRandom
+						? `Нескінченна Порожнеча знищила мозок ворога, @${winner} переміг`
+						: `Всі розрізи всередині Гробниці Зла влучили в ворога, @${loser} переміг`
+				} else {
+					winMessage = sukunaVsGojoRandom
+						? `Всі розрізи всередині Гробниці Зла влучили в ворога, @${winner} переміг`
+						: `Нескінченна Порожнеча знищила мозок ворога, @${loser} переміг`
+				}
 
 				await ctx.reply(winMessage)
 			} else if (
