@@ -21,7 +21,10 @@ async function vsCommandHandler(ctx) {
 		if (username === sanitizedTargetUsername) {
 			await ctx.reply('-_-')
 		} else {
-			if (usernameRole === 'gojo' && targetUsernameRole === 'sukuna') {
+			if (
+				(usernameRole === 'gojo' && targetUsernameRole === 'sukuna') ||
+				(usernameRole === 'sukuna' && targetUsernameRole === 'gojo')
+			) {
 				await ctx.reply(
 					'Найсильніший маг сучасності проти найсильнішого мага в історії'
 				)
@@ -34,37 +37,15 @@ async function vsCommandHandler(ctx) {
 					'https://media1.tenor.com/m/2k8d9V9K74sAAAAd/gojo-satoru-sukuna.gif'
 				)
 				await delay(850)
-				if (sukunaVsGojoRandom) {
-					await ctx.reply(
-						`Нескінченна Порожнеча знищила мозок ворога, @${username} переміг`
-					)
-				} else {
-					await ctx.reply(
-						`Всі розрізи всередині Гробниці Зла влучили в ворога, ${targetUsername} переміг`
-					)
-				}
-			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'gojo') {
-				await ctx.reply(
-					'Найсильніший маг сучасності проти найсильнішого мага в історії'
-				)
-				await delay(850)
-				await ctx.reply('Розширення території... 🤞')
-				await delay(850)
-				await ctx.reply('Розширення території... 🫸⛩️🫷')
-				await delay(850)
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/2k8d9V9K74sAAAAd/gojo-satoru-sukuna.gif'
-				)
-				await delay(850)
-				if (sukunaVsGojoRandom) {
-					await ctx.reply(
-						`Всі розрізи всередині Гробниці Зла влучили в ворога, ${username} переміг`
-					)
-				} else {
-					await ctx.reply(
-						`Нескінченна Порожнеча знищила мозок ворога, ${targetUsername} переміг`
-					)
-				}
+				const isGojo = usernameRole === 'gojo'
+				const winner = sukunaVsGojoRandom
+					? sanitizedTargetUsername
+					: targetUsername
+				const winMessage = isGojo
+					? `Нескінченна Порожнеча знищила мозок ворога, @${winner} переміг`
+					: `Всі розрізи всередині Гробниці Зла влучили в ворога, @${winner} переміг`
+
+				await ctx.reply(winMessage)
 			} else if (
 				(usernameRole === 'gojo' && targetUsernameRole === 'geto') ||
 				(usernameRole === 'geto' && targetUsernameRole === 'gojo')
