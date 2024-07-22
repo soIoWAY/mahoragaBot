@@ -57,7 +57,7 @@ async function vsCommandHandler(ctx) {
 				await delay(850)
 				if (sukVsGojoRandom > 0 && sukVsGojoRandom <= 0.4) {
 					await ctx.reply(
-						`Всі розрізи всередині Гробниці Зла влучили в ворога, ${username} переміг`
+						`Всі розрізи всередині Гробниці Зла влучили в ворога, @${username} переміг`
 					)
 				} else if (sukVsGojoRandom > 0.4 && sukVsGojoRandom <= 0.8) {
 					await ctx.reply(
