@@ -42,7 +42,7 @@ async function purpleCommandHandler(ctx) {
           await ctx.replyWithAnimation(purple)
           await delay(850)
           await ctx.reply(
-            `@${username} влучив в ${targetUsername} 200% фіолетовим, Махорага здох`
+            `@${username} влучив в ${targetUsername} 200% фіолетовим, Махорага і ${targetUsername} були знищені`
           )
         }
       } else if (targetUsernameRole === 'geto') {
