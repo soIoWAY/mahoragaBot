@@ -4,9 +4,9 @@ async function wdragoCommandHandler(ctx) {
   const username = ctx.message.from.username
   const parts = ctx.message.text.split(' ')
   const targetUsername = parts[1]
-  const usernameRole = getUserRole(username)
+  const usernameRole = await getUserRole(username)
   const sanitizedTargetUsername = targetUsername.replace(/^@/, '')
-  const targetUsernameRole = getUserRole(sanitizedTargetUsername)
+  const targetUsernameRole = await getUserRole(sanitizedTargetUsername)
   async function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
   }
