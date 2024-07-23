@@ -23,16 +23,22 @@ async function purpleCommandHandler(ctx) {
     if (targetUsernameRole) {
       if (targetUsernameRole === 'sukuna') {
         const isMahoraAdapt = Math.random()
+        let purple =
+          isMahoraAdapt <= 0.4
+            ? 'https://media1.tenor.com/m/DSyo0NKX8gMAAAAC/gojo-satoru.gif'
+            : isMahoraAdapt > 0.4 && isMahoraAdapt <= 0.9
+            ? 'https://media1.tenor.com/m/DSyo0NKX8gMAAAAC/gojo-satoru.gif'
+            : 'https://media1.tenor.com/m/Uk3MlwmQC90AAAAd/jujutsu-kaisen-ninjaristic.gif'
         if (isMahoraAdapt <= 0.4) {
+          await ctx.replyWithAnimation(purple)
+          await delay(850)
           await ctx.reply('Махорага зміг адаптуватись')
         } else if (isMahoraAdapt > 0.4 && isMahoraAdapt <= 0.9) {
           await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
         } else if (isMahoraAdapt > 0.9 && supportUsername === '@olerxv') {
           await ctx.reply('УТАХІМЕ')
           await delay(1000)
-          await ctx.replyWithAnimation(
-            'https://media1.tenor.com/m/Uk3MlwmQC90AAAAd/jujutsu-kaisen-ninjaristic.gif'
-          )
+          await ctx.replyWithAnimation(purple)
           await delay(850)
           await ctx.reply(
             `@${username} влучив в ${targetUsername} 200% фіолетовим, Махорага здох`
@@ -43,6 +49,10 @@ async function purpleCommandHandler(ctx) {
           'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
         )
       } else {
+        await ctx.replyWithAnimation(
+          'https://media1.tenor.com/m/DSyo0NKX8gMAAAAC/gojo-satoru.gif'
+        )
+        await delay(850)
         await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
       }
     } else {
