@@ -98,8 +98,31 @@ async function vsCommandHandler(ctx) {
             `Вихор був знищений Гробницею Зла, переміг ${targetUsername}`
           )
         } else {
-          await ctx.reply('Прибув Годжо Сатору')
-          await delay(850)
+          await ctx.reply('Втрутилась Ріка Орімото, нічия!')
+        }
+      } else if (usernameRole === 'sukuna' && targetUsernameRole === 'geto') {
+        const sukunaVsGetoRandom = Math.random()
+        await ctx.reply(
+          'Маніпуляція проклятими духами... ☝️\nНайвище мистецтво...'
+        )
+        await delay(850)
+        await ctx.reply('Узумакі 🌀')
+        await delay(850)
+        await ctx.reply('Розширення території... 🫸⛩️🫷')
+        await delay(850)
+        await ctx.replyWithAnimation(
+          'https://media1.tenor.com/m/hp1qKBQclPMAAAAC/jujutsu-kaisen-shibuya-arc-sukuna-domain-expansion.gif'
+        )
+        if (sukunaVsGetoRandom <= 0.4) {
+          await ctx.reply(
+            `Вихор знищив Гробницю Зла, переміг ${targetUsername}`
+          )
+        } else if (sukunaVsGetoRandom > 0.4 && sukVsGojoRandom < 0.9) {
+          await ctx.reply(
+            `Вихор був знищений Гробницею Зла, переміг @${username}`
+          )
+        } else {
+          await ctx.reply('Втрутилась Ріка Орімото, нічия!')
         }
       } else {
         await ctx.reply('Роль не знайдена')
