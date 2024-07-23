@@ -29,7 +29,7 @@ async function slashCommandHandler(ctx) {
         } else {
           await ctx.reply('Я ніколи тебе не забуду Годжо Сатору!')
           await delay(1000)
-          await ctx.replyWithAnimtion(
+          await ctx.replyWithAnimation(
             'https://media1.tenor.com/m/nuUP6703DS4AAAAd/gojo-sukuna.gif'
           )
         }
