@@ -10,7 +10,7 @@ async function wdragoCommandHandler(ctx) {
   async function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
   }
-  if (usernameRole === 'geto') {
+  if (usernameRole !== 'geto') {
     await ctx.reply('Ти не Гето Сугуру!')
   } else {
     await ctx.reply('Маніпуляція прокляттями... 👾')
