@@ -17,7 +17,6 @@ async function purpleCommandHandler(ctx) {
     const messages = [
       'Phase twilight\nEyes of wisdom\nNine ropes',
       'Crow and declaration\nBetween front and back\nHollow... Purple',
-      'https://media1.tenor.com/m/DSyo0NKX8gMAAAAC/gojo-satoru.gif',
     ]
     await sendMessages(ctx, messages, 850)
     await new Promise(resolve => setTimeout(resolve, 1000))
@@ -47,6 +46,10 @@ async function purpleCommandHandler(ctx) {
         await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
       }
     } else {
+      await ctx.replyWithAnimation(
+        'https://media1.tenor.com/m/DSyo0NKX8gMAAAAC/gojo-satoru.gif'
+      )
+      await delay(850)
       await ctx.reply(`Фіолетовий розніс на атоми такого слабака`)
     }
   }
