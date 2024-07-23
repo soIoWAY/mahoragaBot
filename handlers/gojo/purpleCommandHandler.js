@@ -34,6 +34,7 @@ async function purpleCommandHandler(ctx) {
           await delay(850)
           await ctx.reply('Махорага зміг адаптуватись')
         } else if (isMahoraAdapt > 0.4 && isMahoraAdapt <= 0.9) {
+          await ctx.replyWithAnimation(purple)
           await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
         } else if (isMahoraAdapt > 0.9 && supportUsername === '@olerxv') {
           await ctx.reply('УТАХІМЕ')
