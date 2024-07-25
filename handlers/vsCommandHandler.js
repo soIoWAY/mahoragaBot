@@ -57,6 +57,7 @@ async function vsCommandHandler(ctx) {
 				(usernameRole === 'itadori' && targetUsernameRole === 'gojo') ||
 				(usernameRole === 'gojo' && targetUsernameRole === 'itadori')
 			) {
+				await ctx.reply('test')
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/wpRUcTgq0FwAAAAC/cry.gif'
 				)
