@@ -46,3 +46,5 @@ async function blCommandHandler(ctx) {
 		}
 	}
 }
+
+module.exports = blCommandHandler
