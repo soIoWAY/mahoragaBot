@@ -32,9 +32,9 @@ async function vsCommandHandler(ctx) {
 			await ctx.reply('-_-')
 		} else {
 			if (usernameRole === 'gojo' && targetUsernameRole === 'sukuna') {
-				gojoSukunaVs(ctx, username, targetUsername)
+				await gojoSukunaVs(ctx, username, targetUsername)
 			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'gojo') {
-				sukunaGojoVs(ctx, username, targetUsername)
+				await sukunaGojoVs(ctx, username, targetUsername)
 			} else if (
 				(usernameRole === 'gojo' && targetUsernameRole === 'geto') ||
 				(usernameRole === 'geto' && targetUsernameRole === 'gojo')
