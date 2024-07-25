@@ -6,8 +6,11 @@ const {
 	getoSukunaVs,
 	sukunaGetoVs,
 } = require('../content/scenaries/vs/getoSukuna')
+const {
+	itadoriSukunaVs,
+	sukunaItadoriVs,
+} = require('../content/scenaries/vs/itadoriSukuna')
 const getUserRole = require('../db/getUserRole')
-const sendMessages = require('./sendMessages')
 
 async function vsCommandHandler(ctx) {
 	const username = ctx.message.from.username
@@ -41,54 +44,6 @@ async function vsCommandHandler(ctx) {
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
 				)
-			} else if (usernameRole === 'geto' && targetUsernameRole === 'sukuna') {
-				await getoSukunaVs(ctx, username, targetUsername)
-			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'geto') {
-				await sukunaGetoVs(ctx, username, targetUsername)
-			} else if (
-				usernameRole === 'itadori' &&
-				targetUsernameRole === 'sukuna'
-			) {
-				const sukunaVsItadori = Math.random()
-				await ctx.reply('Серія чорних блискавок ⚫️⚡️')
-				await delay(850)
-				await ctx.reply('Розширення території... 🫸⛩️🫷')
-				await delay(850)
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/UVe_VIz4vPcAAAAd/jjk-jujutsu-kaisen.gif'
-				)
-				if (sukunaVsItadori <= 0.4) {
-					await ctx.reply(
-						`Серія чорних блискавок знищила Гробницю Зла, @${username} переміг`
-					)
-				} else if (sukunaVsItadori > 0.4 && sukunaVsItadori < 0.9) {
-					await ctx.reply(
-						`Гробниця Зла порізала ворога, переміг ${targetUsername}`
-					)
-				} else {
-					await ctx.reply('Нічия')
-				}
-			} else if (
-				usernameRole === 'sukuna' &&
-				targetUsernameRole === 'itadori'
-			) {
-				const sukunaVsItadori = Math.random()
-				await ctx.reply('Серія чорних блискавок ⚫️⚡️')
-				await delay(850)
-				await ctx.reply('Розширення території... 🫸⛩️🫷')
-				await delay(850)
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/hp1qKBQclPMAAAAC/jujutsu-kaisen-shibuya-arc-sukuna-domain-expansion.gif'
-				)
-				if (sukunaVsItadori <= 0.4) {
-					await ctx.reply(
-						`Серія чорних блискавок знищила Гробницю Зла, ${targetUsername} переміг`
-					)
-				} else if (sukunaVsItadori > 0.4 && sukunaVsItadori < 0.9) {
-					await ctx.reply(`Гробниця Зла порізала ворога, переміг @${username}`)
-				} else {
-					await ctx.reply('Нічия')
-				}
 			} else if (
 				(usernameRole === 'itadori' && targetUsernameRole === 'geto') ||
 				(usernameRole === 'geto' && targetUsernameRole === 'itadori')
@@ -105,6 +60,20 @@ async function vsCommandHandler(ctx) {
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/wpRUcTgq0FwAAAAC/cry.gif'
 				)
+			} else if (usernameRole === 'geto' && targetUsernameRole === 'sukuna') {
+				await getoSukunaVs(ctx, username, targetUsername)
+			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'geto') {
+				await sukunaGetoVs(ctx, username, targetUsername)
+			} else if (
+				usernameRole === 'itadori' &&
+				targetUsernameRole === 'sukuna'
+			) {
+				await itadoriSukunaVs(ctx, username, targetUsername)
+			} else if (
+				usernameRole === 'sukuna' &&
+				targetUsernameRole === 'itadori'
+			) {
+				await sukunaItadoriVs(ctx, username, targetUsername)
 			} else {
 				await ctx.reply('Роль не знайдена')
 			}
