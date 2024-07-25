@@ -1,13 +1,11 @@
 async function rolesCommandHandler(ctx) {
-  await ctx.reply('Годжо Сатору:\n/purple')
-  await new Promise(resolve => setTimeout(resolve, 800))
-  await ctx.reply('Рьомен Сукуна:\n/slash')
-  await new Promise(resolve => setTimeout(resolve, 800))
-  await ctx.reply('Гето Сугуру:\n/rika')
-  await new Promise(resolve => setTimeout(resolve, 800))
-  await ctx.reply('Спільні команди:\n/vs - дуель')
-  await new Promise(resolve => setTimeout(resolve, 800))
-  await ctx.reply('Доступні ролі:\nМахіто')
+	await ctx.reply(
+		'🟣 Годжо Сатору:\n/purple\n⛩ Рьомен Сукуна:\n/slash\n👾 Гето Сугуру:\n/rika\n'
+	)
+	//🔴 Юдзі Ітадорі:\n/bl
+	await new Promise(resolve => setTimeout(resolve, 800))
+	await ctx.reply('Спільні команди:\n/vs - дуель')
+	await new Promise(resolve => setTimeout(resolve, 800))
 }
 
 module.exports = rolesCommandHandler
