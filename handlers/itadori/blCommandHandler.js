@@ -20,6 +20,7 @@ async function blCommandHandler(ctx) {
 		await ctx.replyWithAnimation(
 			'https://media1.tenor.com/m/Opyt-NsK7-IAAAAC/itadori-itadori-yuji.gif'
 		)
+		await delay(850)
 		if (targetUsernameRole) {
 			const isTarget = Math.random()
 			if (targetUsernameRole === 'sukuna') {
