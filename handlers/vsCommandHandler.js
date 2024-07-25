@@ -168,6 +168,22 @@ async function vsCommandHandler(ctx) {
 				} else {
 					await ctx.reply('Нічия')
 				}
+			} else if (
+				(usernameRole === 'itadori' && targetUsernameRole === 'geto') ||
+				(usernameRole === 'geto' && targetUsernameRole === 'itadori')
+			) {
+				await ctx.reply('Заціпся)')
+				await delay(850)
+				await ctx.replyWithAnimation(
+					'https://media1.tenor.com/m/j8LF6K0cFF4AAAAC/blue-spring-geto-suguru.gif'
+				)
+			} else if (
+				(usernameRole === 'itadori' && targetUsernameRole === 'gojo') ||
+				(usernameRole === 'gojo' && targetUsernameRole === 'itadori')
+			) {
+				await ctx.replyWithAnimation(
+					'https://media1.tenor.com/m/wpRUcTgq0FwAAAAC/cry.gif'
+				)
 			} else {
 				await ctx.reply('Роль не знайдена')
 			}
