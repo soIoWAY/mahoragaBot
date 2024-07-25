@@ -130,9 +130,9 @@ async function vsCommandHandler(ctx) {
 			) {
 				const sukunaVsItadori = Math.random()
 				await ctx.reply('Серія чорних блискавок ⚫️⚡️')
-				delay(850)
+				await delay(850)
 				await ctx.reply('Розширення території... 🫸⛩️🫷')
-				delay(850)
+				await delay(850)
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/UVe_VIz4vPcAAAAd/jjk-jujutsu-kaisen.gif'
 				)
@@ -153,9 +153,9 @@ async function vsCommandHandler(ctx) {
 			) {
 				const sukunaVsItadori = Math.random()
 				await ctx.reply('Серія чорних блискавок ⚫️⚡️')
-				delay(850)
+				await delay(850)
 				await ctx.reply('Розширення території... 🫸⛩️🫷')
-				delay(850)
+				await delay(850)
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/hp1qKBQclPMAAAAC/jujutsu-kaisen-shibuya-arc-sukuna-domain-expansion.gif'
 				)

@@ -16,7 +16,7 @@ async function blCommandHandler(ctx) {
 		await ctx.reply('Ти не Ітадорі Юджі!')
 	} else {
 		await ctx.reply('Чорна блискавка! ⚫️⚡️')
-		delay(850)
+		await delay(850)
 		await ctx.replyWithAnimation(
 			'https://media1.tenor.com/m/Opyt-NsK7-IAAAAC/itadori-itadori-yuji.gif'
 		)
@@ -36,7 +36,7 @@ async function blCommandHandler(ctx) {
 				)
 			} else if (targetUsernameRole === 'geto') {
 				await ctx.reply('Заціпся)')
-				delay(850)
+				await delay(850)
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/j8LF6K0cFF4AAAAC/blue-spring-geto-suguru.gif'
 				)
