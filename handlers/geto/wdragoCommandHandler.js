@@ -27,6 +27,12 @@ async function wdragoCommandHandler(ctx) {
         await ctx.replyWithAnimation(
           'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
         )
+      } else if (targetUsernameRole === 'itadori') {
+        await ctx.reply('Заціпся)')
+        delay(850)
+        await ctx.replyWithAnimation(
+          'https://media1.tenor.com/m/j8LF6K0cFF4AAAAC/blue-spring-geto-suguru.gif'
+        )
       } else if (targetUsernameRole === 'sukuna') {
         const isAdapt = Math.random()
         if (isAdapt <= 0.4) {

@@ -124,6 +124,50 @@ async function vsCommandHandler(ctx) {
 				} else {
 					await ctx.reply('Втрутилась Ріка Орімото, нічия!')
 				}
+			} else if (
+				usernameRole === 'itadori' &&
+				targetUsernameRole === 'sukuna'
+			) {
+				const sukunaVsItadori = Math.random()
+				await ctx.reply('Серія чорних блискавок ⚫️⚡️')
+				delay(850)
+				await ctx.reply('Розширення території... 🫸⛩️🫷')
+				delay(850)
+				await ctx.replyWithAnimation(
+					'https://media1.tenor.com/m/UVe_VIz4vPcAAAAd/jjk-jujutsu-kaisen.gif'
+				)
+				if (sukunaVsItadori <= 0.4) {
+					await ctx.reply(
+						`Серія чорних блискавок знищила Гробницю Зла, @${username} переміг`
+					)
+				} else if (sukunaVsItadori > 0.4 && sukunaVsItadori < 0.9) {
+					await ctx.reply(
+						`Гробниця Зла порізала ворога, переміг ${targetUsername}`
+					)
+				} else {
+					await ctx.reply('Нічия')
+				}
+			} else if (
+				usernameRole === 'sukuna' &&
+				targetUsernameRole === 'itadori'
+			) {
+				const sukunaVsItadori = Math.random()
+				await ctx.reply('Серія чорних блискавок ⚫️⚡️')
+				delay(850)
+				await ctx.reply('Розширення території... 🫸⛩️🫷')
+				delay(850)
+				await ctx.replyWithAnimation(
+					'https://media1.tenor.com/m/hp1qKBQclPMAAAAC/jujutsu-kaisen-shibuya-arc-sukuna-domain-expansion.gif'
+				)
+				if (sukunaVsItadori <= 0.4) {
+					await ctx.reply(
+						`Серія чорних блискавок знищила Гробницю Зла, ${targetUsername} переміг`
+					)
+				} else if (sukunaVsItadori > 0.4 && sukunaVsItadori < 0.9) {
+					await ctx.reply(`Гробниця Зла порізала ворога, переміг @${username}`)
+				} else {
+					await ctx.reply('Нічия')
+				}
 			} else {
 				await ctx.reply('Роль не знайдена')
 			}
