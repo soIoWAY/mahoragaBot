@@ -1,3 +1,7 @@
+const {
+	gojoSukunaVs,
+	sukunaGojoVs,
+} = require('../content/scenaries/vs/gojoSukunaVs')
 const getUserRole = require('../db/getUserRole')
 const sendMessages = require('./sendMessages')
 
@@ -28,49 +32,9 @@ async function vsCommandHandler(ctx) {
 			await ctx.reply('-_-')
 		} else {
 			if (usernameRole === 'gojo' && targetUsernameRole === 'sukuna') {
-				await sendMessages(ctx, sukunaGojoMessages, 850)
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/2k8d9V9K74sAAAAd/gojo-satoru-sukuna.gif'
-				)
-				await delay(850)
-				if (sukVsGojoRandom > 0 && sukVsGojoRandom <= 0.4) {
-					await ctx.reply(
-						`Нескінченна Порожнеча знищила мозок ворога, @${username} переміг`
-					)
-				} else if (sukVsGojoRandom > 0.4 && sukVsGojoRandom <= 0.8) {
-					await ctx.reply(
-						`Всі розрізи всередині Гробниці Зла влучили в ворога, ${targetUsername} переміг`
-					)
-				} else {
-					await ctx.reply('Я скажу, що це ти все зламав')
-					await delay(850)
-					await ctx.reply('Паршивець')
-					await ctx.replyWithPhoto(
-						'https://i.pinimg.com/564x/06/f5/51/06f551a67fac436d386db135b3e3d119.jpg'
-					)
-				}
+				gojoSukunaVs(ctx, username, targetUsername)
 			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'gojo') {
-				await sendMessages(ctx, sukunaGojoMessages, 850)
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/2k8d9V9K74sAAAAd/gojo-satoru-sukuna.gif'
-				)
-				await delay(850)
-				if (sukVsGojoRandom > 0 && sukVsGojoRandom <= 0.4) {
-					await ctx.reply(
-						`Всі розрізи всередині Гробниці Зла влучили в ворога, @${username} переміг`
-					)
-				} else if (sukVsGojoRandom > 0.4 && sukVsGojoRandom <= 0.8) {
-					await ctx.reply(
-						`Нескінченна Порожнеча знищила мозок ворога, ${targetUsername} переміг`
-					)
-				} else {
-					await ctx.reply('Я скажу, що це ти все зламав')
-					await delay(850)
-					await ctx.reply('Паршивець')
-					await ctx.replyWithPhoto(
-						'https://i.pinimg.com/564x/06/f5/51/06f551a67fac436d386db135b3e3d119.jpg'
-					)
-				}
+				sukunaGojoVs(ctx, username, targetUsername)
 			} else if (
 				(usernameRole === 'gojo' && targetUsernameRole === 'geto') ||
 				(usernameRole === 'geto' && targetUsernameRole === 'gojo')
