@@ -5,6 +5,10 @@ const sukunaItadoriMessages = [
 	'Розширення території.. 🫸⛩️🫷',
 ]
 
+async function delay(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 const itadoriSukunaVs = async (ctx, username, targetUsername) => {
 	const random = Math.round(Math.random())
 	await sendMessages(ctx, sukunaItadoriMessages, 850)
