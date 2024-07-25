@@ -43,7 +43,7 @@ async function blCommandHandler(ctx) {
 				)
 			}
 		} else {
-			await ctx.reply('Чорна блискав знищила такого слабака!')
+			await ctx.reply('Чорна блискавка знищила такого слабака!')
 		}
 	}
 }
