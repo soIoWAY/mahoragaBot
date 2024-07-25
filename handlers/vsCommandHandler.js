@@ -2,6 +2,10 @@ const {
 	gojoSukunaVs,
 	sukunaGojoVs,
 } = require('../content/scenaries/vs/gojoSukunaVs')
+const {
+	getoSukunaVs,
+	sukunaGetoVs,
+} = require('../content/scenaries/vs/getoSukuna')
 const getUserRole = require('../db/getUserRole')
 const sendMessages = require('./sendMessages')
 
@@ -9,11 +13,6 @@ async function vsCommandHandler(ctx) {
 	const username = ctx.message.from.username
 	const parts = ctx.message.text.split(' ')
 	const targetUsername = parts[1]
-	const sukunaGojoMessages = [
-		'Найсильніший маг сучасності проти найсильнішого мага в історії',
-		'Розширення території... 🤞',
-		'Розширення території... 🫸⛩️🫷',
-	]
 	async function delay(ms) {
 		return new Promise(resolve => setTimeout(resolve, ms))
 	}
@@ -43,51 +42,9 @@ async function vsCommandHandler(ctx) {
 					'https://media1.tenor.com/m/_zGJ55uKUfwAAAAC/geto-suguru-suguru-geto.gif'
 				)
 			} else if (usernameRole === 'geto' && targetUsernameRole === 'sukuna') {
-				const sukunaVsGetoRandom = Math.random()
-				await ctx.reply('Розширення території... 🫸⛩️🫷')
-				await delay(850)
-				await ctx.reply(
-					'Маніпуляція проклятими духами... ☝️\nНайвище мистецтво...'
-				)
-				await delay(850)
-				await ctx.reply('Узумакі 🌀')
-				await delay(850)
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/61GhJxxu1-oAAAAd/kenjaku-geto.gif'
-				)
-				if (sukunaVsGetoRandom <= 0.4) {
-					await ctx.reply(`Вихор знищив Гробницю Зла, переміг @${username}`)
-				} else if (sukunaVsGetoRandom > 0.4 && sukVsGojoRandom < 0.9) {
-					await ctx.reply(
-						`Вихор був знищений Гробницею Зла, переміг ${targetUsername}`
-					)
-				} else {
-					await ctx.reply('Втрутилась Ріка Орімото, нічия!')
-				}
+				await getoSukunaVs(ctx, username, targetUsername)
 			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'geto') {
-				const sukunaVsGetoRandom = Math.random()
-				await ctx.reply(
-					'Маніпуляція проклятими духами... ☝️\nНайвище мистецтво...'
-				)
-				await delay(850)
-				await ctx.reply('Узумакі 🌀')
-				await delay(850)
-				await ctx.reply('Розширення території... 🫸⛩️🫷')
-				await delay(850)
-				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/hp1qKBQclPMAAAAC/jujutsu-kaisen-shibuya-arc-sukuna-domain-expansion.gif'
-				)
-				if (sukunaVsGetoRandom <= 0.4) {
-					await ctx.reply(
-						`Вихор знищив Гробницю Зла, переміг ${targetUsername}`
-					)
-				} else if (sukunaVsGetoRandom > 0.4 && sukVsGojoRandom < 0.9) {
-					await ctx.reply(
-						`Вихор був знищений Гробницею Зла, переміг @${username}`
-					)
-				} else {
-					await ctx.reply('Втрутилась Ріка Орімото, нічия!')
-				}
+				await sukunaGetoVs(ctx, username, targetUsername)
 			} else if (
 				usernameRole === 'itadori' &&
 				targetUsernameRole === 'sukuna'
