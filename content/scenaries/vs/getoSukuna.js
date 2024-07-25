@@ -16,6 +16,7 @@ const getoSukunaVs = async (ctx, username, targetUsername) => {
 	await ctx.replyWithAnimation(
 		'https://media1.tenor.com/m/61GhJxxu1-oAAAAd/kenjaku-geto.gif'
 	)
+	await delay(850)
 	if (random) {
 		await ctx.reply(`Вихор знищив Гробницю Зла, переміг @${username} 🌀`)
 	} else {
@@ -32,6 +33,7 @@ const sukunaGetoVs = async (ctx, username, targetUsername) => {
 	await ctx.replyWithAnimation(
 		'https://media1.tenor.com/m/hp1qKBQclPMAAAAC/jujutsu-kaisen-shibuya-arc-sukuna-domain-expansion.gif'
 	)
+	await delay(850)
 	if (random) {
 		await ctx.reply(`Вихор знищив Гробницю Зла, переміг ${targetUsername} 🌀`)
 	} else {

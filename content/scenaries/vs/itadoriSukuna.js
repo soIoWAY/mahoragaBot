@@ -18,6 +18,7 @@ const itadoriSukunaVs = async (ctx, username, targetUsername) => {
 		await ctx.reply(
 			`Сукуна, на що дивишся? Пішли зі мною.\n@${username} переміг 🔴`
 		)
+		await delay(850)
 	} else {
 		await ctx.reply(
 			`Непогана спроба паршивцю, а тепер помри.\n${targetUsername} переміг ⛩️`
@@ -32,6 +33,7 @@ const sukunaItadoriVs = async (ctx, username, targetUsername) => {
 	await ctx.replyWithAnimation(
 		'https://media1.tenor.com/m/6FtXg-hF9FoAAAAC/jjk-jjk-s2.gif'
 	)
+	await delay(850)
 	if (random) {
 		await ctx.reply(
 			`Сукуна, на що дивишся? Пішли зі мною.\n${targetUsername} переміг 🔴`

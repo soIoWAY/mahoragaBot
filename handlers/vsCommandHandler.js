@@ -57,9 +57,8 @@ async function vsCommandHandler(ctx) {
 				(usernameRole === 'itadori' && targetUsernameRole === 'gojo') ||
 				(usernameRole === 'gojo' && targetUsernameRole === 'itadori')
 			) {
-				await ctx.reply('test')
 				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/wpRUcTgq0FwAAAAC/cry.gif'
+					'https://media1.tenor.com/m/9F1H_NisG4QAAAAC/cry-about-it.gif'
 				)
 			} else if (usernameRole === 'geto' && targetUsernameRole === 'sukuna') {
 				await getoSukunaVs(ctx, username, targetUsername)
