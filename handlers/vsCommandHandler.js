@@ -12,8 +12,6 @@ const {
 } = require('../content/scenaries/vs/itadoriSukuna')
 const getUserRole = require('../db/getUserRole')
 
-let activeFights = {}
-
 async function vsCommandHandler(ctx) {
 	const username = ctx.message.from.username
 	const parts = ctx.message.text.split(' ')
@@ -27,25 +25,13 @@ async function vsCommandHandler(ctx) {
 		)
 		return
 	}
-
 	try {
 		const usernameRole = await getUserRole(username)
 		const sanitizedTargetUsername = targetUsername.replace(/^@/, '')
 		const targetUsernameRole = await getUserRole(sanitizedTargetUsername)
-
-		const fightKey = `${username}:${sanitizedTargetUsername}`
-		if (activeFights[fightKey]) {
-			await ctx.reply('ДЕБІЛ ТИ ВЖЕ В ПОЄДИНКУ НЕ СПАМ!')
-			return
-		}
 		if (username === sanitizedTargetUsername) {
 			await ctx.reply('-_-')
-			return
-		}
-
-		activeFights[fightKey] = true
-
-		try {
+		} else {
 			if (usernameRole === 'gojo' && targetUsernameRole === 'sukuna') {
 				await gojoSukunaVs(ctx, username, targetUsername)
 			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'gojo') {
@@ -90,8 +76,6 @@ async function vsCommandHandler(ctx) {
 			} else {
 				await ctx.reply('Роль не знайдена')
 			}
-		} finally {
-			delete activeFights[fightKey]
 		}
 	} catch (err) {
 		console.error('Помилка при витягувані ролі ', err)
