@@ -9,7 +9,9 @@ async function purpleCommandHandler(ctx) {
 	const sanitizedTargetUsername = targetUsername.replace(/^@/, '')
 	const sanitizedSupportUsername = supportUsername.replace(/^@/, '')
 	const targetUsernameRole = await getUserRole(sanitizedTargetUsername)
-	const supportUsernameRole = await getUserRole(sanitizedSupportUsername)
+	const supportUsernameRole = supportUsername
+		? await getUserRole(sanitizedSupportUsername)
+		: ''
 	async function delay(ms) {
 		return new Promise(resolve => setTimeout(resolve, ms))
 	}
