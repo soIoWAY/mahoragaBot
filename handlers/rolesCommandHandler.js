@@ -1,8 +1,7 @@
 async function rolesCommandHandler(ctx) {
 	await ctx.reply(
-		'🟣 Годжо Сатору:\n /purple\n⛩ Рьомен Сукуна:\n /slash\n👾 Гето Сугуру:\n /rika\n'
+		'🟣 Годжо Сатору:\n /purple\n⛩ Рьомен Сукуна:\n /slash\n👾 Гето Сугуру:\n /rika\n🔴 Юджі Ітадорі: \n /bl'
 	)
-	//🔴 Юдзі Ітадорі:\n/bl
 	await new Promise(resolve => setTimeout(resolve, 800))
 	await ctx.reply('Спільні команди:\n/vs - дуель')
 	await new Promise(resolve => setTimeout(resolve, 800))
