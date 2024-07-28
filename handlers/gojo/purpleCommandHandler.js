@@ -38,16 +38,23 @@ async function purpleCommandHandler(ctx) {
 				} else if (isMahoraAdapt > 0.3 && isMahoraAdapt <= 0.83) {
 					await ctx.replyWithAnimation(purple)
 					await ctx.reply(`@${username} влучив в ${targetUsername} фіолетовим`)
-				} else if (isMahoraAdapt > 0.83 && supportUsernameRole === 'utahime') {
-					await ctx.reply('УТАХІМЕ')
-					await delay(850)
-					await ctx.replyWithAnimation('https://i.imgur.com/lD6Q0q0.gif')
-					await delay(850)
-					await ctx.replyWithAnimation(purple)
-					await delay(850)
-					await ctx.reply(
-						`@${username} і ${supportUsername} влучили в ${targetUsername} 200% фіолетовим, Махорага і ${targetUsername} були знищені.`
-					)
+				} else if (isMahoraAdapt > 0.83) {
+					if (supportUsernameRole && supportUsernameRole === 'utahime') {
+						await ctx.reply('УТАХІМЕ')
+						await delay(850)
+						await ctx.replyWithAnimation('https://i.imgur.com/lD6Q0q0.gif')
+						await delay(850)
+						await ctx.replyWithAnimation(purple)
+						await delay(850)
+						await ctx.reply(
+							`@${username} і ${supportUsername} влучили в ${targetUsername} 200% фіолетовим, Махорага і ${targetUsername} були знищені.`
+						)
+					} else {
+						await ctx.replyWithAnimation(purple)
+						await ctx.reply(
+							`@${username} влучив в ${targetUsername} фіолетовим`
+						)
+					}
 				}
 			} else if (targetUsernameRole === 'geto') {
 				await ctx.replyWithAnimation(
