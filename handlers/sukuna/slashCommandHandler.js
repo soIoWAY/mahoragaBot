@@ -52,7 +52,9 @@ async function slashCommandHandler(ctx) {
 					)
 				}
 			} else {
-				await ctx.reply(`@${username} влучив в ${targetUsername} розрізом`)
+				await ctx.reply(
+					`@${username} влучив в ${targetUsername} світовим розрізом`
+				)
 			}
 		} else {
 			await ctx.reply(
