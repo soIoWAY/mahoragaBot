@@ -14,7 +14,7 @@ async function slashCommandHandler(ctx) {
 		await ctx.reply('Ти не Рьомен Сукуна!')
 	} else {
 		const messages = [
-			'Луска дракона\nВіддача\nМетеори близнюка\nСвітовий розріз',
+			'Луска дракона\nВіддача\nМетеори близнюки\nСвітовий розріз',
 			'https://media1.tenor.com/m/O8RVjFsdWI8AAAAC/sukuna-ryomen.gif',
 		]
 		await sendMessages(ctx, messages, 850)
