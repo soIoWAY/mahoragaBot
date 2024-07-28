@@ -24,7 +24,7 @@ async function blCommandHandler(ctx) {
 		if (targetUsernameRole) {
 			const isTarget = Math.random()
 			if (targetUsernameRole === 'sukuna') {
-				if (isTarget <= 0.6) {
+				if (isTarget <= 0.5) {
 					await ctx.reply('Махорага зміг адаптуватись')
 				} else {
 					await ctx.reply(
