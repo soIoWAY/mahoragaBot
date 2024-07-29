@@ -76,6 +76,10 @@ async function vsCommandHandler(ctx) {
 				await sukunaItadoriVs(ctx, username, targetUsername)
 			} else if (usernameRole === 'utahime' && targetUsernameRole === 'gojo') {
 				await utahimeGojo(ctx)
+			} else if (
+				usernameRole === 'utahime' &&
+				targetUsernameRole === 'sukuna'
+			) {
 			} else {
 				await ctx.reply('Роль не знайдена')
 			}
