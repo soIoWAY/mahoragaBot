@@ -12,6 +12,10 @@ const {
 } = require('../content/scenaries/vs/itadoriSukuna')
 const getUserRole = require('../db/getUserRole')
 const { utahimeGojo } = require('../content/scenaries/vs/utahimeGojoVs')
+const {
+	utahimeSukunaVs,
+	sukunaUtahimeVs,
+} = require('../content/scenaries/vs/utahimeSukuna')
 
 async function vsCommandHandler(ctx) {
 	const username = ctx.message.from.username
@@ -80,6 +84,12 @@ async function vsCommandHandler(ctx) {
 				usernameRole === 'utahime' &&
 				targetUsernameRole === 'sukuna'
 			) {
+				await utahimeSukunaVs(ctx, username, targetUsername)
+			} else if (
+				usernameRole === 'sukuna' &&
+				targetUsernameRole === 'utahime'
+			) {
+				await sukunaUtahimeVs(ctx, username, targetUsername)
 			} else {
 				await ctx.reply('Роль не знайдена')
 			}
