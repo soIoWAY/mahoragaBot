@@ -16,6 +16,14 @@ const {
 	utahimeSukunaVs,
 	sukunaUtahimeVs,
 } = require('../content/scenaries/vs/utahimeSukuna')
+const {
+	sukunaVulkanVs,
+	vulkanSukunaVs,
+} = require('../content/scenaries/vs/sukunaVulkan')
+const {
+	gojoVulkanVs,
+	vulkanGojoVs,
+} = require('../content/scenaries/vs/vulkanGojo')
 
 async function vsCommandHandler(ctx) {
 	const username = ctx.message.from.username
@@ -90,6 +98,14 @@ async function vsCommandHandler(ctx) {
 				targetUsernameRole === 'utahime'
 			) {
 				await sukunaUtahimeVs(ctx, username, targetUsername)
+			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'vulkan') {
+				await sukunaVulkanVs(ctx, username, targetUsername)
+			} else if (usernameRole === 'vulkan' && targetUsernameRole === 'sukuna') {
+				await vulkanSukunaVs(ctx, username, targetUsername)
+			} else if (usernameRole === 'gojo' && targetUsernameRole === 'vulkan') {
+				await gojoVulkanVs(ctx, username, targetUsername)
+			} else if (usernameRole === 'vulkan' && targetUsernameRole === 'gojo') {
+				await vulkanGojoVs(ctx, username, targetUsername)
 			} else {
 				await ctx.reply('Роль не знайдена')
 			}
