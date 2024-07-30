@@ -24,6 +24,18 @@ const {
 	gojoVulkanVs,
 	vulkanGojoVs,
 } = require('../content/scenaries/vs/vulkanGojo')
+const {
+	nobaraSukuna,
+	sukunaNobara,
+} = require('../content/scenaries/vs/nobara/nobaraSukuna')
+const {
+	nobaraItadori,
+} = require('../content/scenaries/vs/nobara/nobaraItadori')
+const { nobaraGojo } = require('../content/scenaries/vs/nobara/nobaraGojo')
+const { nobaraGeto } = require('../content/scenaries/vs/nobara/nobaraGetp')
+const {
+	nobaraUtahime,
+} = require('../content/scenaries/vs/nobara/nobaraUtahime')
 
 async function vsCommandHandler(ctx) {
 	const username = ctx.message.from.username
@@ -98,14 +110,30 @@ async function vsCommandHandler(ctx) {
 				targetUsernameRole === 'utahime'
 			) {
 				await sukunaUtahimeVs(ctx, username, targetUsername)
-			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'vulkan') {
-				await sukunaVulkanVs(ctx, username, targetUsername)
-			} else if (usernameRole === 'vulkan' && targetUsernameRole === 'sukuna') {
-				await vulkanSukunaVs(ctx, username, targetUsername)
-			} else if (usernameRole === 'gojo' && targetUsernameRole === 'vulkan') {
-				await gojoVulkanVs(ctx, username, targetUsername)
-			} else if (usernameRole === 'vulkan' && targetUsernameRole === 'gojo') {
-				await vulkanGojoVs(ctx, username, targetUsername)
+			} else if (usernameRole === 'nobara' && targetUsernameRole === 'sukuna') {
+				await nobaraSukuna(ctx, username, targetUsername)
+			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'nobara') {
+				await sukunaNobara(ctx, username, targetUsername)
+			} else if (
+				(usernameRole === 'nobara' && targetUsernameRole === 'itadori') ||
+				(usernameRole === 'itadori' && targetUsernameRole === 'nobara')
+			) {
+				await nobaraItadori(ctx)
+			} else if (
+				(usernameRole === 'nobara' && targetUsernameRole === 'gojo') ||
+				(usernameRole === 'gojo' && targetUsernameRole === 'nobara')
+			) {
+				await nobaraGojo(ctx)
+			} else if (
+				(usernameRole === 'nobara' && targetUsernameRole === 'geto') ||
+				(usernameRole === 'geto' && targetUsernameRole === 'nobara')
+			) {
+				await nobaraGeto(ctx)
+			} else if (
+				(usernameRole === 'nobara' && targetUsernameRole === 'utahime') ||
+				(usernameRole === 'utahime' && targetUsernameRole === 'nobara')
+			) {
+				await nobaraUtahime(ctx)
 			} else {
 				await ctx.reply('Роль не знайдена')
 			}

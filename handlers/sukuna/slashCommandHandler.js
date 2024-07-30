@@ -51,6 +51,14 @@ async function slashCommandHandler(ctx) {
 						`@${username} влучив в ${targetUsername} світовим розрізом`
 					)
 				}
+			} else if (targetUsernameRole === 'nobara') {
+				if (isAdapt <= 0.1) {
+					await ctx.reply(`${targetUsername} змогла ухилитись`)
+				} else {
+					await ctx.reply(
+						`@${username} влучив в ${targetUsername} світовим розрізом`
+					)
+				}
 			} else {
 				await ctx.reply(
 					`@${username} влучив в ${targetUsername} світовим розрізом`

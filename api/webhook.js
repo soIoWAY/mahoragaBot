@@ -16,6 +16,7 @@ const updateMessageCount = require('../db/updateMessageCount')
 const topUsersByMessage = require('../db/topUsersByMessage')
 const vsCommandHandler = require('../handlers/vsCommandHandler')
 const blCommandHandler = require('../handlers/itadori/blCommandHandler')
+const resCommandHandler = require('../handlers/nobara/resCommandHandler')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
@@ -34,6 +35,7 @@ bot.command('worm', wormCommandHanlder)
 bot.command('cey', ceyCommandHandler)
 // Mahito
 bot.command('rtm', rtmCommandHandler)
+bot.command('res', resCommandHandler)
 // general
 bot.command('roles', rolesCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
