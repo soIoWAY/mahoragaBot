@@ -41,6 +41,10 @@ async function resCommandHandler(ctx) {
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/cYuVeEJLh7UAAAAd/geto-jujutsu-kaisen.gif'
 				)
+			} else if (targetUsernameRole === 'itadori') {
+				await ctx.replyWithAnimation(
+					'https://media1.tenor.com/m/GSu6UWjBtukAAAAC/anime-jujutsu-kaisen.gif'
+				)
 			} else if (targetUsernameRole === 'utahime') {
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/gYjbTItBi7oAAAAd/megumi-fushiguro-megumi.gif'
