@@ -1,4 +1,4 @@
-const sendMessages = require('../../../handlers/sendMessages')
+const sendMessages = require('../../../../handlers/sendMessages')
 
 const getoSukunaMessages = [
 	'Розширення території... 🫸⛩️🫷',
