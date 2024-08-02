@@ -31,7 +31,7 @@ const checkChatId = (ctx, next) => {
 	return next()
 }
 
-bot.start(startCommandHandler, checkChatId)
+bot.start(checkChatId, startCommandHandler)
 // Itadori
 bot.command('bl', blCommandHandler)
 bot.command('weatherNow', weatherCommandHandler)
