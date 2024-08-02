@@ -21,7 +21,17 @@ const resCommandHandler = require('../handlers/nobara/resCommandHandler')
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
 
-bot.start(startCommandHandler)
+const ALLOWED_CHAT_ID = -1002149849126
+
+const checkChatId = (ctx, next) => {
+	if (ctx.chat.id !== ALLOWED_CHAT_ID) {
+		ctx.reply('The bot is only available to a closed group of users ❗️❗️❗️')
+		return
+	}
+	return next()
+}
+
+bot.start(startCommandHandler, checkChatId)
 // Itadori
 bot.command('bl', blCommandHandler)
 bot.command('weatherNow', weatherCommandHandler)
