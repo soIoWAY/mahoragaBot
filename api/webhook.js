@@ -23,15 +23,15 @@ const bot = new Telegraf(token)
 
 const ALLOWED_CHAT_ID = -1002149849126
 
-const checkChatId = (ctx, next) => {
+bot.use((ctx, next) => {
 	if (ctx.chat.id !== ALLOWED_CHAT_ID) {
-		ctx.reply('The bot is only available to a closed group of users ❗️❗️❗️')
+		ctx.reply('The bot is only available to a closed group of users ❗️')
 		return
 	}
 	return next()
-}
+})
 
-bot.start(checkChatId, startCommandHandler)
+bot.start(startCommandHandler)
 // Itadori
 bot.command('bl', blCommandHandler)
 bot.command('weatherNow', weatherCommandHandler)
