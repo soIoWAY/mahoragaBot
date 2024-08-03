@@ -17,7 +17,9 @@ const vsCommandHandler = require('../handlers/vsCommandHandler')
 const blCommandHandler = require('../handlers/itadori/blCommandHandler')
 const resCommandHandler = require('../handlers/nobara/resCommandHandler')
 
-const { purpleCommandHandler } = require('../handlers/characters/characters')
+const {
+	purpleCommandHandler,
+} = require('../handlers/characters/gojo/purpleCommandHandler')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
