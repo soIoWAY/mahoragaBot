@@ -10,6 +10,9 @@ const updateMessageCount = require('../db/updateMessageCount')
 const topUsersByMessage = require('../db/topUsersByMessage')
 const vsCommandHandler = require('../handlers/vsCommandHandler')
 
+const meme = require('../handlers/main/memeCommandHandler')
+
+// characters command handlers
 const purple = require('../handlers/characters/gojo/purpleCommandHandler')
 const rika = require('../handlers/characters/geto/rikaCommandHandler')
 const bl = require('../handlers/characters/itadori/blCommandHandler')
@@ -39,6 +42,7 @@ bot.command('res', res)
 bot.command('roles', rolesCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
 bot.command('vs', vsCommandHandler)
+bot.command('meme', meme)
 
 bot.on('text', async ctx => {
 	const messageText = ctx.message.text
@@ -66,8 +70,6 @@ bot.on('text', async ctx => {
 		await ctx.reply('А яке')
 	} else if (msgTextToLC.includes('школ')) {
 		await ctx.reply('Топтав ту школу')
-	} else if (msgTextToLC.includes('ти програєш')) {
-		await ctx.reply('Nah, Id Adapt')
 	} else if (gNames.some(gName => msgTextToLC.includes(gName))) {
 		await ctx.reply('))')
 	} else if (clowns.some(clown => msgTextToLC.includes(clown))) {
