@@ -3,7 +3,6 @@ const { Telegraf } = require('telegraf')
 const weatherCommandHandler = require('../handlers/weatherCommand')
 const rtmCommandHandler = require('../handlers/rtmCommandHandler')
 const topmCommandHandler = require('../handlers/topmCommandHandler')
-const purpleCommandHandler = require('../handlers/gojo/purpleCommandHandler')
 const slashCommandHandler = require('../handlers/sukuna/slashCommandHandler')
 const startCommandHandler = require('../handlers/startCommandHandler')
 const wdragoCommandHandler = require('../handlers/geto/wdragoCommandHandler')
@@ -17,6 +16,8 @@ const topUsersByMessage = require('../db/topUsersByMessage')
 const vsCommandHandler = require('../handlers/vsCommandHandler')
 const blCommandHandler = require('../handlers/itadori/blCommandHandler')
 const resCommandHandler = require('../handlers/nobara/resCommandHandler')
+
+const { purpleCommandHandler } = require('../handlers/characters/characters')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)

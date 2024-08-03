@@ -1,5 +1,5 @@
-const getUserRole = require('../../db/getUserRole')
-const sendMessages = require('../sendMessages')
+const getUserRole = require('../../../db/getUserRole')
+const sendMessages = require('../../sendMessages')
 async function purpleCommandHandler(ctx) {
 	const username = ctx.message.from.username
 	const parts = ctx.message.text.split(' ')
