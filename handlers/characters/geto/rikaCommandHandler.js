@@ -1,4 +1,4 @@
-const getUserRole = require('../../db/getUserRole')
+const getUserRole = require('../../../db/getUserRole')
 
 async function rikaCommandHandler(ctx) {
 	const username = ctx.message.from.username
