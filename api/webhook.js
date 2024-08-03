@@ -38,7 +38,7 @@ bot.start(startCommandHandler)
 bot.command('bl', blCommandHandler)
 bot.command('weatherNow', weatherCommandHandler)
 // Satoru
-bot.command('purple', purpleCommandHandler)
+bot.command('purple', ctx => purpleCommandHandler(ctx))
 // Sukuna
 bot.command('slash', slashCommandHandler)
 // geto
