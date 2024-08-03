@@ -10,8 +10,6 @@ const updateMessageCount = require('../db/updateMessageCount')
 const topUsersByMessage = require('../db/topUsersByMessage')
 const vsCommandHandler = require('../handlers/vsCommandHandler')
 
-const meme = require('../handlers/main/memeCommandHandler')
-
 // characters command handlers
 const purple = require('../handlers/characters/gojo/purpleCommandHandler')
 const rika = require('../handlers/characters/geto/rikaCommandHandler')
@@ -42,7 +40,6 @@ bot.command('res', res)
 bot.command('roles', rolesCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
 bot.command('vs', vsCommandHandler)
-bot.command('meme', meme)
 
 bot.on('text', async ctx => {
 	const messageText = ctx.message.text
