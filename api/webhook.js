@@ -25,7 +25,6 @@ const ALLOWED_CHAT_ID = -1002149849126
 
 bot.use((ctx, next) => {
 	if (ctx.chat.id !== ALLOWED_CHAT_ID) {
-		ctx.reply('The bot is only available to a closed group of users ❗️')
 		return
 	}
 	return next()
@@ -53,104 +52,43 @@ bot.command('vs', vsCommandHandler)
 
 bot.on('text', async ctx => {
 	const messageText = ctx.message.text
+	const msgTextToLC = messageText.toLocaleLowerCase()
 	const username = ctx.message.from.username
 	if (
 		messageText.toLocaleLowerCase().includes('жінка') ||
 		messageText === 'МАХОРАГА ХЕЛП'
 	) {
-		try {
-			await ctx.replyWithAnimation(
-				'https://media1.tenor.com/m/xxTiQVYbcAAAAAAd/jujutsu-kaisen-shibuya-arc-mahoraga-shibuya-arc.gif'
-			)
-		} catch (err) {
-			console.error('Помилка надсилання анімації: ', err)
-		}
+		await ctx.replyWithAnimation(
+			'https://media1.tenor.com/m/xxTiQVYbcAAAAAAd/jujutsu-kaisen-shibuya-arc-mahoraga-shibuya-arc.gif'
+		)
 	} else if (
-		messageText.includes('@general_mahoraga_bot') &&
-		username !== 'xzvetal'
+		messageText.includes('@general_mahoraga_bot') ||
+		messageText.includes('МАХОРАГА')
 	) {
-		try {
-			await ctx.reply('Алло бездарність, як ти смієш мене тегати?!')
-		} catch (error) {
-			console.error('Помилка надсилання повідомлення: ', error)
-		}
-	} else if (messageText.includes('МАХОРАГА') && username !== 'xzvetal') {
-		try {
+		if (username !== 'xzvetal') {
 			await ctx.reply('*плюнув*')
-		} catch (error) {
-			console.error('Помилка надсилання повідомлення: ', error)
-		}
-	} else if (
-		messageText === '@general_mahoraga_bot' ||
-		(messageText === 'МАХОРАГА' && username === 'xzvetal')
-	) {
-		try {
+		} else {
 			await ctx.reply('Ваш вірний слуга до ваших послуг!')
-		} catch (error) {
-			console.error('Помилка надсилання повідомлення: ', error)
 		}
-	} else if (
-		messageText.toLocaleLowerCase().includes('тихо') ||
-		messageText.toLocaleLowerCase().includes('тихе')
-	) {
-		try {
-			await ctx.reply('Гаааааааааа?')
-		} catch (error) {
-			console.error(error)
-		}
-	} else if (messageText.toLocaleLowerCase().includes('шо то норм')) {
-		try {
-			await ctx.reply('А яке')
-		} catch (error) {
-			console.error(error)
-		}
-	} else if (messageText.toLocaleLowerCase().includes('школ')) {
-		try {
-			await ctx.reply('Топтав ту школу')
-		} catch (error) {
-			console.error(error)
-		}
-	} else if (messageText.toLocaleLowerCase().includes('ти програєш')) {
-		try {
-			await ctx.reply('Nah, Id Adapt')
-		} catch (error) {
-			console.error(error)
-		}
-	} else if (
-		gNames.some(gName => messageText.toLocaleLowerCase().includes(gName))
-	) {
-		try {
-			await ctx.reply('))')
-		} catch (error) {
-			console.error(error)
-		}
-	} else if (
-		clowns.some(clown => messageText.toLocaleLowerCase().includes(clown))
-	) {
-		try {
-			await ctx.reply(`ХАХАХАХАХАХАХАХАХХ НАХУЯ ВИ ТО ЧЕРПАЦЬКЕ ІМЯ ЗГАДУЄТЕ`)
-		} catch (error) {
-			console.error(error)
-		}
-	} else if (
-		banWords.some(word => messageText.toLocaleLowerCase().includes(word))
-	) {
-		try {
-			const user_id = ctx.message.from.id
-			const username = ctx.message.from.username
-			await updateBanMessageCount(user_id, username)
-		} catch (error) {
-			console.error(error)
-		}
-	} else if (messageText.toLocaleLowerCase() === 'макс') {
-		try {
-			await ctx.replyWithPhoto('https://i.imgur.com/tKeUWiN.jpeg')
-		} catch (error) {
-			console.error(error)
-		}
+	} else if (msgTextToLC.includes('тихо') || msgTextToLC.includes('тихе')) {
+		await ctx.reply('Гаааааааааа?')
+	} else if (msgTextToLC.includes('шо то норм')) {
+		await ctx.reply('А яке')
+	} else if (msgTextToLC.includes('школ')) {
+		await ctx.reply('Топтав ту школу')
+	} else if (msgTextToLC.includes('ти програєш')) {
+		await ctx.reply('Nah, Id Adapt')
+	} else if (gNames.some(gName => msgTextToLC.includes(gName))) {
+		await ctx.reply('))')
+	} else if (clowns.some(clown => msgTextToLC.includes(clown))) {
+		await ctx.reply(`ХАХАХАХАХАХАХАХАХХ НАХУЯ ВИ ТО ЧЕРПАЦЬКЕ ІМЯ ЗГАДУЄТЕ`)
+	} else if (msgTextToLC === 'макс') {
+		await ctx.replyWithPhoto('https://i.imgur.com/tKeUWiN.jpeg')
+	} else if (banWords.some(word => msgTextToLC.includes(word))) {
+		const user_id = ctx.message.from.id
+		await updateBanMessageCount(user_id, username)
 	} else {
 		const user_id = ctx.message.from.id
-		const username = ctx.message.from.username
 		await updateMessageCount(user_id, username)
 	}
 })
