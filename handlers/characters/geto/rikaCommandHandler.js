@@ -1,6 +1,6 @@
 const getUserRole = require('../../db/getUserRole')
 
-async function wdragoCommandHandler(ctx) {
+async function rikaCommandHandler(ctx) {
 	const username = ctx.message.from.username
 	const parts = ctx.message.text.split(' ')
 	const targetUsername = parts[1]
@@ -47,4 +47,4 @@ async function wdragoCommandHandler(ctx) {
 	}
 }
 
-module.exports = wdragoCommandHandler
+module.exports = rikaCommandHandler

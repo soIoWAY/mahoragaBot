@@ -5,10 +5,7 @@ const rtmCommandHandler = require('../handlers/rtmCommandHandler')
 const topmCommandHandler = require('../handlers/topmCommandHandler')
 const slashCommandHandler = require('../handlers/sukuna/slashCommandHandler')
 const startCommandHandler = require('../handlers/startCommandHandler')
-const wdragoCommandHandler = require('../handlers/geto/wdragoCommandHandler')
-const wormCommandHanlder = require('../handlers/geto/wormCommandHandler')
 const rolesCommandHandler = require('../handlers/rolesCommandHandler')
-const ceyCommandHandler = require('../handlers/geto/ceyCommandHandler')
 const { banWords, clowns, gNames } = require('../content/words')
 const updateBanMessageCount = require('../db/updateBanMessageCount')
 const updateMessageCount = require('../db/updateMessageCount')
@@ -18,6 +15,7 @@ const blCommandHandler = require('../handlers/itadori/blCommandHandler')
 const resCommandHandler = require('../handlers/nobara/resCommandHandler')
 
 const purple = require('../handlers/characters/gojo/purpleCommandHandler')
+const rika = require('../handlers/characters/geto/rikaCommandHandler')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
@@ -40,9 +38,7 @@ bot.command('purple', purple)
 // Sukuna
 bot.command('slash', slashCommandHandler)
 // geto
-bot.command('rika', wdragoCommandHandler)
-bot.command('worm', wormCommandHanlder)
-bot.command('cey', ceyCommandHandler)
+bot.command('rika', rika)
 // Mahito
 bot.command('rtm', rtmCommandHandler)
 bot.command('res', resCommandHandler)
