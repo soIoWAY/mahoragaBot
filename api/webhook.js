@@ -1,9 +1,7 @@
 require('dotenv').config()
 const { Telegraf } = require('telegraf')
 const weatherCommandHandler = require('../handlers/weatherCommand')
-const rtmCommandHandler = require('../handlers/rtmCommandHandler')
 const topmCommandHandler = require('../handlers/topmCommandHandler')
-const slashCommandHandler = require('../handlers/sukuna/slashCommandHandler')
 const startCommandHandler = require('../handlers/startCommandHandler')
 const rolesCommandHandler = require('../handlers/rolesCommandHandler')
 const { banWords, clowns, gNames } = require('../content/words')
@@ -11,11 +9,12 @@ const updateBanMessageCount = require('../db/updateBanMessageCount')
 const updateMessageCount = require('../db/updateMessageCount')
 const topUsersByMessage = require('../db/topUsersByMessage')
 const vsCommandHandler = require('../handlers/vsCommandHandler')
-const blCommandHandler = require('../handlers/itadori/blCommandHandler')
-const resCommandHandler = require('../handlers/nobara/resCommandHandler')
 
 const purple = require('../handlers/characters/gojo/purpleCommandHandler')
 const rika = require('../handlers/characters/geto/rikaCommandHandler')
+const bl = require('../handlers/characters/itadori/blCommandHandler')
+const res = require('../handlers/characters/nobara/resCommandHandler')
+const slash = require('../handlers/characters/sukuna/slashCommandHandler')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
@@ -30,19 +29,13 @@ bot.use((ctx, next) => {
 })
 
 bot.start(startCommandHandler)
-// Itadori
-bot.command('bl', blCommandHandler)
+
+bot.command('bl', bl)
 bot.command('weatherNow', weatherCommandHandler)
-// Satoru
 bot.command('purple', purple)
-// Sukuna
-bot.command('slash', slashCommandHandler)
-// geto
+bot.command('slash', slash)
 bot.command('rika', rika)
-// Mahito
-bot.command('rtm', rtmCommandHandler)
-bot.command('res', resCommandHandler)
-// general
+bot.command('res', res)
 bot.command('roles', rolesCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
 bot.command('vs', vsCommandHandler)

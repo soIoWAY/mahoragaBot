@@ -1,6 +1,6 @@
-const getUserRole = require('../../db/getUserRole')
+const getUserRole = require('../../../db/getUserRole')
 
-async function resCommandHandler(ctx) {
+async function blCommandHandler(ctx) {
 	const username = ctx.message.from.username
 	const parts = ctx.message.text.split(' ')
 	const targetUsername = parts[1]
@@ -12,48 +12,48 @@ async function resCommandHandler(ctx) {
 		return new Promise(resolve => setTimeout(resolve, ms))
 	}
 
-	if (usernameRole !== 'nobara') {
-		await ctx.reply('Ти не Кугісакі Нобара!')
+	if (usernameRole !== 'itadori') {
+		await ctx.reply('Ти не Ітадорі Юджі!')
 	} else {
-		await ctx.reply('Техніка Резонанс! 🔨')
+		await ctx.reply('Чорна блискавка! ⚫️⚡️')
 		await delay(850)
 		await ctx.replyWithAnimation(
-			'https://media1.tenor.com/m/Tri2GtbXyzsAAAAC/kugisaki-kugisaki-nobara.gif'
+			'https://media1.tenor.com/m/Opyt-NsK7-IAAAAC/itadori-itadori-yuji.gif'
 		)
 		await delay(850)
 		if (targetUsernameRole) {
 			const isTarget = Math.random()
 			if (targetUsernameRole === 'sukuna') {
-				if (isTarget <= 0.65) {
+				if (isTarget <= 0.5) {
 					await ctx.reply('Махорага зміг адаптуватись')
 				} else {
 					await ctx.reply(
-						`@${username} влучила в ${targetUsername} технікою резонансу`
+						`@${username} влучив в ${targetUsername} чорною блискавкою`
 					)
 				}
 			} else if (targetUsernameRole === 'gojo') {
 				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/Vmtzuub57cgAAAAd/gojo-nobara.gif  '
+					'https://media1.tenor.com/m/wpRUcTgq0FwAAAAC/cry.gif'
 				)
 			} else if (targetUsernameRole === 'geto') {
 				await ctx.reply('Заціпся)')
 				await delay(850)
 				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/cYuVeEJLh7UAAAAd/geto-jujutsu-kaisen.gif'
+					'https://media1.tenor.com/m/j8LF6K0cFF4AAAAC/blue-spring-geto-suguru.gif'
 				)
-			} else if (targetUsernameRole === 'itadori') {
+			} else if (targetUsernameRole === 'nobara') {
 				await ctx.replyWithAnimation(
 					'https://media1.tenor.com/m/GSu6UWjBtukAAAAC/anime-jujutsu-kaisen.gif'
 				)
 			} else if (targetUsernameRole === 'utahime') {
 				await ctx.replyWithAnimation(
-					'https://media1.tenor.com/m/gYjbTItBi7oAAAAd/megumi-fushiguro-megumi.gif'
+					'https://media1.tenor.com/m/TIW-WizMbYMAAAAC/utahime-utahime-iori.gif'
 				)
 			}
 		} else {
-			await ctx.reply('Техніка Резонансу знищила такого слабака!')
+			await ctx.reply('Чорна блискавка знищила такого слабака!')
 		}
 	}
 }
 
-module.exports = resCommandHandler
+module.exports = blCommandHandler
