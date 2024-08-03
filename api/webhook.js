@@ -17,9 +17,7 @@ const vsCommandHandler = require('../handlers/vsCommandHandler')
 const blCommandHandler = require('../handlers/itadori/blCommandHandler')
 const resCommandHandler = require('../handlers/nobara/resCommandHandler')
 
-const {
-	purpleCommandHandler,
-} = require('../handlers/characters/gojo/purpleCommandHandler')
+const purpleCommandHandler = require('../handlers/characters/gojo/purpleCommandHandler')
 
 const token = process.env.TOKEN
 const bot = new Telegraf(token)
@@ -38,7 +36,7 @@ bot.start(startCommandHandler)
 bot.command('bl', blCommandHandler)
 bot.command('weatherNow', weatherCommandHandler)
 // Satoru
-bot.command('purple', ctx => purpleCommandHandler(ctx))
+bot.command('purple', purpleCommandHandler)
 // Sukuna
 bot.command('slash', slashCommandHandler)
 // geto
