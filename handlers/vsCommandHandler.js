@@ -1,6 +1,7 @@
 const {
 	gojoSukunaVs,
 	sukunaGojoVs,
+	battle,
 } = require('../content/scenaries/vs/gojoSukunaVs')
 const {
 	getoSukunaVs,
@@ -50,9 +51,21 @@ async function vsCommandHandler(ctx) {
 			await ctx.reply('-_-')
 		} else {
 			if (usernameRole === 'gojo' && targetUsernameRole === 'sukuna') {
-				await gojoSukunaVs(ctx, username, targetUsername)
+				await battle(
+					ctx,
+					username,
+					targetUsername,
+					usernameRole,
+					targetUsernameRole
+				)
 			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'gojo') {
-				await gojoSukunaVs(ctx, username, targetUsername)
+				await battle(
+					ctx,
+					username,
+					targetUsername,
+					usernameRole,
+					targetUsernameRole
+				)
 			} else if (
 				(usernameRole === 'gojo' && targetUsernameRole === 'geto') ||
 				(usernameRole === 'geto' && targetUsernameRole === 'gojo')

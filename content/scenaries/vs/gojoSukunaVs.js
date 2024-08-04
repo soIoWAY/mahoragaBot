@@ -1,4 +1,3 @@
-const getUserRole = require('../../../db/getUserRole')
 const sendMessages = require('../../../handlers/sendMessages')
 
 const sukunaGojoMessages = [
@@ -7,20 +6,27 @@ const sukunaGojoMessages = [
 	'Розширення території... 🫸⛩️🫷',
 	'https://media1.tenor.com/m/TJgMlZW8qN8AAAAC/jujutsu-kaisen-kaisen-jujutsu.gif',
 ]
+const roleMessages = {
+	gojo: 'Нескінченна порожнеча знищила мозок ворога, ',
+	sukuna: 'Всі розрази всередині Гробниці зла влучили в ворога, ',
+}
 
-const gojoSukunaVs = async (ctx, username, targetUsername) => {
+const battle = async (
+	ctx,
+	username,
+	targetUsername,
+	usernameRole,
+	targetUsernameRole
+) => {
 	const random = Math.round(Math.random())
-	const usernameRole = await getUserRole(username)
 	await sendMessages(ctx, sukunaGojoMessages, 850)
-	const winMessage =
-		usernameRole === 'gojo'
-			? 'Нескінченна Порожнеча знищила мозок ворога '
-			: 'Всі розрізи всередині Гробниці Зла влучили в ворога '
 	if (random) {
-		await ctx.reply(winMessage + `@${username} переміг 🟣`)
+		await ctx.reply(`${roleMessages[usernameRole]} @${username} переміг`)
 	} else {
-		await ctx.reply(winMessage + `${targetUsername} переміг ⛩️`)
+		await ctx.reply(
+			`${roleMessages[targetUsernameRole]} ${targetUsername} переміг`
+		)
 	}
 }
 
-module.exports = { gojoSukunaVs }
+module.exports = { battle }
