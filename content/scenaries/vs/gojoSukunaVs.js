@@ -1,3 +1,4 @@
+const getUserRole = require('../../../db/getUserRole')
 const sendMessages = require('../../../handlers/sendMessages')
 
 const sukunaGojoMessages = [
@@ -9,16 +10,17 @@ const sukunaGojoMessages = [
 async function delay(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms))
 }
-const gojoSukunaVs = async (ctx, username, targetUsername) => {
+const gojoSukunaVs = async (ctx, username) => {
 	const random = Math.round(Math.random())
+	const usernameRole = await getUserRole(username)
 	await sendMessages(ctx, sukunaGojoMessages, 850)
-	if (random) {
+	if (random && usernameRole === 'gojo') {
 		await ctx.reply(
 			`Нескінченна Порожнеча знищила мозок ворога, @${username} переміг 🟣`
 		)
 	} else {
 		await ctx.reply(
-			`Всі розрізи всередині Гробниці Зла влучили в ворога, ${targetUsername} переміг ⛩️`
+			`Всі розрізи всередині Гробниці Зла влучили в ворога, @${username} переміг ⛩️`
 		)
 	}
 }

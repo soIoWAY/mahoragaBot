@@ -17,14 +17,6 @@ const {
 	sukunaUtahimeVs,
 } = require('../content/scenaries/vs/utahimeSukuna')
 const {
-	sukunaVulkanVs,
-	vulkanSukunaVs,
-} = require('../content/scenaries/vs/sukunaVulkan')
-const {
-	gojoVulkanVs,
-	vulkanGojoVs,
-} = require('../content/scenaries/vs/vulkanGojo')
-const {
 	nobaraSukuna,
 	sukunaNobara,
 } = require('../content/scenaries/vs/nobara/nobaraSukuna')
@@ -58,9 +50,9 @@ async function vsCommandHandler(ctx) {
 			await ctx.reply('-_-')
 		} else {
 			if (usernameRole === 'gojo' && targetUsernameRole === 'sukuna') {
-				await gojoSukunaVs(ctx, username, targetUsername)
+				await gojoSukunaVs(ctx, username)
 			} else if (usernameRole === 'sukuna' && targetUsernameRole === 'gojo') {
-				await sukunaGojoVs(ctx, username, targetUsername)
+				await gojoSukunaVs(ctx, username)
 			} else if (
 				(usernameRole === 'gojo' && targetUsernameRole === 'geto') ||
 				(usernameRole === 'geto' && targetUsernameRole === 'gojo')
