@@ -8,7 +8,7 @@ const sukunaGojoMessages = [
 ]
 const roleMessages = {
 	gojo: 'Нескінченна порожнеча знищила мозок ворога, ',
-	sukuna: 'Всі розрази всередині Гробниці зла влучили в ворога, ',
+	sukuna: 'Всі розрізи всередині Гробниці зла влучили в ворога, ',
 }
 
 const battle = async (
