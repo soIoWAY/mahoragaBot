@@ -48,6 +48,7 @@ bot.on('text', async ctx => {
 	const msgTextToLC = messageText.toLocaleLowerCase()
 	const username = ctx.message.from.username
 	if (mutedUsers.includes(username)) {
+		await ctx.deleteMessage()
 		return
 	} else {
 		if (
