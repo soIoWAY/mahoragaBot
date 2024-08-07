@@ -85,14 +85,14 @@ bot.on('text', async ctx => {
 			const parts = ctx.message.text.split(' ')
 			const targetUsername = parts[1]
 			mutedUsers.push(targetUsername)
-			await ctx.reply(`$@{targetUsername} замучений`)
+			await ctx.reply(`@${targetUsername} замучений`)
 		} else if (username === 'xzvetal' && messageText.startsWith('unmute')) {
 			const parts = ctx.message.text.split(' ')
 			const targetUsername = parts[1]
 			const index = mutedUsers.indexOf(targetUsername)
 			if (index !== -1) {
 				mutedUsers.splice(index, 1)
-				await ctx.reply(`$@{targetUsername} розмучений`)
+				await ctx.reply(`@${targetUsername} розмучений`)
 			}
 		} else {
 			const user_id = ctx.message.from.id
