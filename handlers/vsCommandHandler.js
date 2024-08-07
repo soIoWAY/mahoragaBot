@@ -1,8 +1,4 @@
-const {
-	gojoSukunaVs,
-	sukunaGojoVs,
-	battle,
-} = require('../content/scenaries/vs/gojoSukunaVs')
+const { battle } = require('../content/scenaries/vs/gojoSukunaVs')
 const {
 	getoSukunaVs,
 	sukunaGetoVs,

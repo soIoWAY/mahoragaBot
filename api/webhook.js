@@ -41,11 +41,13 @@ bot.command('roles', rolesCommandHandler)
 bot.command('topm', ctx => topmCommandHandler(ctx, topUsersByMessage))
 bot.command('vs', vsCommandHandler)
 
+let mutedUsers = []
+
 bot.on('text', async ctx => {
 	const messageText = ctx.message.text
 	const msgTextToLC = messageText.toLocaleLowerCase()
 	const username = ctx.message.from.username
-	if (username === 'H4untt') {
+	if (mutedUsers.includes(username)) {
 		return
 	} else {
 		if (
@@ -79,6 +81,19 @@ bot.on('text', async ctx => {
 		} else if (banWords.some(word => msgTextToLC.includes(word))) {
 			const user_id = ctx.message.from.id
 			await updateBanMessageCount(user_id, username)
+		} else if (username === 'xzvetal' && messageText === 'mute') {
+			const parts = ctx.message.text.split(' ')
+			const targetUsername = parts[1]
+			mutedUsers.push(targetUsername)
+			await ctx.reply(`$@{targetUsername} замучений`)
+		} else if (username === 'xzvetal' && messageText === 'unmute') {
+			const parts = ctx.message.text.split(' ')
+			const targetUsername = parts[1]
+			const index = mutedUsers.indexOf(targetUsername)
+			if (index !== -1) {
+				mutedUsers.splice(index, 1)
+				await ctx.reply(`$@{targetUsername} розмучений`)
+			}
 		} else {
 			const user_id = ctx.message.from.id
 			await updateMessageCount(user_id, username)
