@@ -81,12 +81,12 @@ bot.on('text', async ctx => {
 		} else if (banWords.some(word => msgTextToLC.includes(word))) {
 			const user_id = ctx.message.from.id
 			await updateBanMessageCount(user_id, username)
-		} else if (username === 'xzvetal' && messageText === 'mute') {
+		} else if (username === 'xzvetal' && messageText.startsWith('mute')) {
 			const parts = ctx.message.text.split(' ')
 			const targetUsername = parts[1]
 			mutedUsers.push(targetUsername)
 			await ctx.reply(`$@{targetUsername} замучений`)
-		} else if (username === 'xzvetal' && messageText === 'unmute') {
+		} else if (username === 'xzvetal' && messageText.startsWith('unmute')) {
 			const parts = ctx.message.text.split(' ')
 			const targetUsername = parts[1]
 			const index = mutedUsers.indexOf(targetUsername)
