@@ -45,40 +45,44 @@ bot.on('text', async ctx => {
 	const messageText = ctx.message.text
 	const msgTextToLC = messageText.toLocaleLowerCase()
 	const username = ctx.message.from.username
-	if (
-		messageText.toLocaleLowerCase().includes('жінка') ||
-		messageText === 'МАХОРАГА ХЕЛП'
-	) {
-		await ctx.replyWithAnimation(
-			'https://media1.tenor.com/m/xxTiQVYbcAAAAAAd/jujutsu-kaisen-shibuya-arc-mahoraga-shibuya-arc.gif'
-		)
-	} else if (
-		messageText.includes('@general_mahoraga_bot') ||
-		messageText.includes('МАХОРАГА')
-	) {
-		if (username !== 'xzvetal') {
-			await ctx.reply('*плюнув*')
-		} else {
-			await ctx.reply('Ваш вірний слуга до ваших послуг!')
-		}
-	} else if (msgTextToLC.includes('тихо') || msgTextToLC.includes('тихе')) {
-		await ctx.reply('Гаааааааааа?')
-	} else if (msgTextToLC.includes('шо то норм')) {
-		await ctx.reply('А яке')
-	} else if (msgTextToLC.includes('школ')) {
-		await ctx.reply('Топтав ту школу')
-	} else if (gNames.some(gName => msgTextToLC.includes(gName))) {
-		await ctx.reply('))')
-	} else if (clowns.some(clown => msgTextToLC.includes(clown))) {
-		await ctx.reply(`ХАХАХАХАХАХАХАХАХХ НАХУЯ ВИ ТО ЧЕРПАЦЬКЕ ІМЯ ЗГАДУЄТЕ`)
-	} else if (msgTextToLC === 'макс') {
-		await ctx.replyWithPhoto('https://i.imgur.com/tKeUWiN.jpeg')
-	} else if (banWords.some(word => msgTextToLC.includes(word))) {
-		const user_id = ctx.message.from.id
-		await updateBanMessageCount(user_id, username)
+	if (username === 'H4untt') {
+		return
 	} else {
-		const user_id = ctx.message.from.id
-		await updateMessageCount(user_id, username)
+		if (
+			messageText.toLocaleLowerCase().includes('жінка') ||
+			messageText === 'МАХОРАГА ХЕЛП'
+		) {
+			await ctx.replyWithAnimation(
+				'https://media1.tenor.com/m/xxTiQVYbcAAAAAAd/jujutsu-kaisen-shibuya-arc-mahoraga-shibuya-arc.gif'
+			)
+		} else if (
+			messageText.includes('@general_mahoraga_bot') ||
+			messageText.includes('МАХОРАГА')
+		) {
+			if (username !== 'xzvetal') {
+				await ctx.reply('*плюнув*')
+			} else {
+				await ctx.reply('Ваш вірний слуга до ваших послуг!')
+			}
+		} else if (msgTextToLC.includes('тихо') || msgTextToLC.includes('тихе')) {
+			await ctx.reply('Гаааааааааа?')
+		} else if (msgTextToLC.includes('шо то норм')) {
+			await ctx.reply('А яке')
+		} else if (msgTextToLC.includes('школ')) {
+			await ctx.reply('Топтав ту школу')
+		} else if (gNames.some(gName => msgTextToLC.includes(gName))) {
+			await ctx.reply('))')
+		} else if (clowns.some(clown => msgTextToLC.includes(clown))) {
+			await ctx.reply(`ХАХАХАХАХАХАХАХАХХ НАХУЯ ВИ ТО ЧЕРПАЦЬКЕ ІМЯ ЗГАДУЄТЕ`)
+		} else if (msgTextToLC === 'макс') {
+			await ctx.replyWithPhoto('https://i.imgur.com/tKeUWiN.jpeg')
+		} else if (banWords.some(word => msgTextToLC.includes(word))) {
+			const user_id = ctx.message.from.id
+			await updateBanMessageCount(user_id, username)
+		} else {
+			const user_id = ctx.message.from.id
+			await updateMessageCount(user_id, username)
+		}
 	}
 })
 
